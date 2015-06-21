@@ -124,6 +124,7 @@
       <displayverbs type="stringlist">
         <value>Look at</value>
       </displayverbs>
+      <prefix>some</prefix>
       <pluck type="script">
         if (not Got(blueberries)) {
           MoveObject (blueberries, player)
@@ -133,7 +134,6 @@
           msg ("I already have more than I can eat.")
         }
       </pluck>
-      <prefix>some</prefix>
       <object name="blueberries">
         <inherit name="editor_object" />
         <usedefaultprefix />
@@ -174,6 +174,10 @@
         <value>Look at</value>
       </displayverbs>
       <isFixed type="boolean">false</isFixed>
+      <feature_container />
+      <listchildren />
+      <listchildrenprefix>On the bike there's </listchildrenprefix>
+      <prefix>your </prefix>
       <look type="script">
         firsttime {
           msg ("My awesome mountain bike. Too bad it's blue - don't know why I keep getting blue things, when my favorite color is orange.")
@@ -193,10 +197,6 @@
           }
         }
       </look>
-      <feature_container />
-      <listchildren />
-      <listchildrenprefix>On the bike there's </listchildrenprefix>
-      <prefix>your </prefix>
     </object>
     <exit name="OldWaterPump" to="old water pump">
       <scenery type="boolean">false</scenery>
@@ -387,6 +387,9 @@
           <value>Look at</value>
         </inventoryverbs>
         <look><![CDATA[Let's see... Three PC keys (a Steuerung, an Alternativ, and an Entfernen) , a small blue shit, and a very romantic poem<br/><br/>Îți aduci aminte ziua când ți-am spus că ești frumoasă, <br/>Când, în șoaptele pădurii, poate că te-am sărutat,<br/>Ascultând ecoul rece, înspre toamna friguroasă?<br/><br/>signed G. Bacovia <br/>Brrr.. .reminds me of Pașcanu.]]></look>
+        <displayverbs type="stringlist">
+          <value>Look at</value>
+        </displayverbs>
       </object>
       <object name="piece of paper">
         <inherit name="editor_object" />
@@ -395,34 +398,148 @@
         </inventoryverbs>
         <look><![CDATA[No one signed the log yet. I must be the first one to find it :)<br/>I must have lost that bloody pen, but I'm not leaving 'till I sign.]]></look>
         <isSigned type="boolean">false</isSigned>
+        <displayverbs type="stringlist">
+          <value>Look at</value>
+        </displayverbs>
       </object>
     </object>
   </object>
   <object name="Stelzenberg town center">
     <inherit name="editor_room" />
+    <enter type="script"><![CDATA[
+      msg ("Ring ring! Ring ring! <br/>Oh! Natalie is calling! I am so late!<br/>\"Hi Natalie! I will be home in 7 minutes.\"")
+    ]]></enter>
     <exit to="home">
       <scenery type="boolean">false</scenery>
       <runscript />
+      <script type="script"><![CDATA[
+        msg ("My old school bus just passed. It always reminds me of my first year of school. I was so young!")
+        msg ("Soon I will see the Snoopy garage. It's repainted but looks exactly as 20 years ago.")
+        picture ("snoopy.jpg")
+        msg ("That's a strange guy in front of the garage! He wears a big cloak that also covers his head. And it's so hot outside!")
+        msg ("The stranger approaches... It's a vampire!!!<br/>\"Hello, Adi. I've been been looking for several months for someone whose blood will not give us a stomach burn. My ten brothers are awaiting at the clinic downtown, in the sample reception area.\"")
+        menulist = NewStringList()
+        list add (menulist, "Heeeeeeeeeeeeeeeelp!")
+        list add (menulist, "All right, but I'm in a bit of a hurry. Wait here and I'll be back in a few minutes.")
+        list add (menulist, "I've just got checked and the doctors suspect I might have tuberculosis.")
+        ShowMenu ("Yikes!", menulist, false) {
+          msg ("Nice try, dude, but I'm not stupid. I've done my research and I made sure your blood is just fine and no one can stop me.")
+          menulist = NewStringList()
+          list add (menulist, "Pretty please?")
+          list add (menulist, "No chance at all?")
+          ShowMenu ("", menulist, false) {
+            msg ("All right, I'm only willing to let you go if you can help me find a long lost artefact. Must be around here.")
+            MoveObject (player, Snoopy place)
+          }
+        }
+      ]]></script>
     </exit>
     <exit to="forrest">
       <locked />
       <lockmessage>I'm not going back already! I'm tired.</lockmessage>
       <prefix> to the </prefix>
     </exit>
+    <object name="town center">
+      <inherit name="editor_object" />
+      <look><![CDATA[There are two guys sitting on the bench! That's so crowded!<br/>]]></look>
+      <displayverbs type="stringlist">
+        <value>Look at</value>
+      </displayverbs>
+    </object>
+    <object name="map">
+      <inherit name="editor_object" />
+      <look type="script">
+        msg ("I know how to get home from here! No need to check the map... But, I'll do that, just in case. I know I'm kind of absent-minded sometimes.")
+        picture ("map.jpg")
+      </look>
+      <displayverbs type="stringlist">
+        <value>Look at</value>
+      </displayverbs>
+    </object>
   </object>
   <object name="Snoopy place">
     <inherit name="editor_room" />
-    <exit to="home">
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <descprefix>You are at</descprefix>
+    <prefix>the</prefix>
+    <exit name="GoHome" to="home">
       <locked />
       <lockmessage>I have to find the artifact first. The vampire will take my blood otherwise...</lockmessage>
     </exit>
+    <object name="vampire">
+      <inherit name="editor_object" />
+      <inherit name="male" />
+      <look>He's Lord Slug of The Vile Blood!! I shouldn't know that... Is he putting thoughts in my mind???</look>
+      <feature_usegive />
+      <give type="scriptdictionary">
+        <item key="Armageddon Blade">
+          MoveObject (Armageddon Blade, vampire)
+          msg ("\"Oh! You have found it!\", wispers the lord. \"I am deeply grateful! Not only that I will not drink your blood, but I will also give you a nice gift!\" ")
+          msg ("\"This is the Vial of Slug Blood. Equipped in a Miscellaneous slot, this powerful vial puts all slugs under your command and gives you +5 Attack and +5 Defense against them. Use it wisely\" ")
+          AddToInventory (Vial of Slug Blood)
+          MakeObjectVisible (Vial of Slug Blood)
+          UnlockExit (GoHome)
+        </item>
+      </give>
+    </object>
+    <object name="Armageddon Blade">
+      <inherit name="editor_object" />
+      <alias>Armageddon's Blade</alias>
+      <visible type="boolean">false</visible>
+      <scenery />
+      <feature_usegive />
+      <givesingle />
+      <inventoryverbs type="stringlist">
+        <value>Look at</value>
+        <value>give</value>
+      </inventoryverbs>
+      <givemenuprompt>To the vampire, you mean?</givemenuprompt>
+      <give type="scriptdictionary">
+        <item key="vampire">
+          msg ("There you go, sir")
+        </item>
+      </give>
+    </object>
+    <object name="Vial of Slug Blood">
+      <inherit name="editor_object" />
+      <visible type="boolean">false</visible>
+      <scenery />
+      <inventoryverbs type="stringlist">
+        <value>Look at</value>
+        <value>Use</value>
+      </inventoryverbs>
+    </object>
+    <object name="Snoopy garage">
+      <inherit name="editor_object" />
+      <look>Looks so happy! I wander what it's writing. A love letter maybe?</look>
+      <search>Nothing out of the ordinary.</search>
+      <displayverbs type="stringlist">
+        <value>Look at</value>
+      </displayverbs>
+    </object>
+    <object name="trash cans">
+      <inherit name="editor_object" />
+      <look>Three trash cans for different waste types. Everything is recycled in Germany! </look>
+      <search>There's something shiny behind the middle container. Maybe I should move it so I can see better.</search>
+      <move type="script">
+        MakeObjectVisible (Armageddon Blade)
+        msg ("I found the artifact! It's the {object:Armageddon Blade}!")
+        AddToInventory (Armageddon Blade)
+      </move>
+      <displayverbs type="stringlist">
+        <value>Look at</value>
+      </displayverbs>
+    </object>
   </object>
   <object name="home">
     <inherit name="editor_room" />
     <enter type="script">
+      play sound ("surprise.wav", true, false)
       msg ("Surprise!!! There's a surprise party for your birthday!")
       finish
     </enter>
+    <descprefix>You are </descprefix>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
   </object>
   <verb>
     <property>listentomusic</property>
@@ -443,6 +560,11 @@
     <property>pluck</property>
     <pattern>pluck</pattern>
     <defaultexpression>"You can't pluck " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>givetovampire</property>
+    <pattern>give to vampire</pattern>
+    <defaultexpression>"You can't give to vampire " + object.article + "."</defaultexpression>
   </verb>
   <function name="ShowUseMenu" parameters="currentObject">
     msg ("What to use the " + currentObject.name + " with?")
@@ -477,6 +599,40 @@
       use selfie stick
       use selfie stick with slug
       go to Stelzenberg town center
+    </steps>
+  </walkthrough>
+  <walkthrough name="HappyPath">
+    <steps type="simplestringlist">
+      use geocache app smart phone
+      go to old water pump
+      search water pump
+      search water pump
+      look at strange box
+      achtung
+      go to woods
+      use small bolt
+      use small bolt with bike
+      pluck berry bushes
+      use blueberries
+      use blueberries with piece of paper
+      use large black bolt
+      use large black bolt with strange box
+      go to old water pump
+      use strange box
+      use strange box with water pump
+      go to woods
+      go to Stelzenberg town center
+      look at bike
+      use selfie stick
+      use selfie stick with slug
+      go to Stelzenberg town center
+      go to home
+      event:ShowMenuResponse;Heeeeeeeeeeeeeeeelp!
+      event:ShowMenuResponse;No chance at all?
+      move trash cans
+      give Armageddon's Blade
+      event:ShowMenuResponse;vampire
+      go to home
     </steps>
   </walkthrough>
 </asl>
