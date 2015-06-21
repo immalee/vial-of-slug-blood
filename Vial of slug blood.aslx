@@ -1,0 +1,120 @@
+<!--Saved by Quest 5.6.5621.18142-->
+<asl version="550">
+  <include ref="English.aslx" />
+  <include ref="Core.aslx" />
+  <game name="Vial of slug blood">
+    <gameid>5181ac17-b592-4a1f-8f7b-c037be8bdd8b</gameid>
+    <version>1.0</version>
+    <firstpublished>2015</firstpublished>
+    <description>Because it's your birthday!</description>
+    <author><![CDATA[Cristina & Călin]]></author>
+    <category>Comedy</category>
+    <difficulty>Medium</difficulty>
+    <cruelty>Merciful</cruelty>
+  </game>
+  <object name="forrest">
+    <inherit name="editor_room" />
+    <objectslistprefix type="string"></objectslistprefix>
+    <description>It is a perfect, sunny summer day. The birds are singing. You have your {object:bike} near you. </description>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <prefix>the</prefix>
+    <object name="player">
+      <inherit name="editor_object" />
+      <inherit name="editor_player" />
+      <scenery />
+      <gender>he</gender>
+      <article>him</article>
+      <look>So handsome!</look>
+      <object name="backpack">
+        <inherit name="editor_object" />
+        <inherit name="container_open" />
+        <feature_container />
+        <listchildren />
+        <look>Almost empty! I should have left it home.</look>
+        <displayverbs type="stringlist">
+          <value>Look at</value>
+          <value>Open</value>
+        </displayverbs>
+        <object name="selfie stick">
+          <inherit name="editor_object" />
+          <scenery />
+          <drop type="boolean">false</drop>
+        </object>
+        <object name="apple">
+          <inherit name="editor_object" />
+          <usedefaultprefix />
+          <scenery />
+        </object>
+      </object>
+      <object name="glasses">
+        <inherit name="editor_object" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <scenery />
+        <drop type="boolean">false</drop>
+        <dropmsg>Never! They are part of me! </dropmsg>
+      </object>
+      <object name="smart phone">
+        <inherit name="editor_object" />
+        <scenery />
+      </object>
+    </object>
+    <object name="berry bushes">
+      <inherit name="editor_object" />
+      <scenery />
+      <look>Blueberries! Look delicious!</look>
+      <object name="blueberries">
+        <inherit name="editor_object" />
+        <usedefaultprefix />
+        <scenery />
+      </object>
+    </object>
+    <object name="bike">
+      <inherit name="editor_object" />
+      <alias>bicycle</alias>
+      <usedefaultprefix type="boolean">false</usedefaultprefix>
+      <scenery />
+      <look>My broken bike :( I've tried to repair it but I've lost a nail. </look>
+      <drop type="boolean">false</drop>
+    </object>
+    <exit to="old water pump">
+      <scenery type="boolean">false</scenery>
+      <visible type="boolean">false</visible>
+      <locked type="boolean">false</locked>
+    </exit>
+    <exit to="Stelzenberg town center">
+      <locked />
+      <lockmessage>I can't go there! My bike is broken! I must fix it somehow!</lockmessage>
+      <runscript type="boolean">false</runscript>
+    </exit>
+  </object>
+  <object name="old water pump">
+    <inherit name="editor_room" />
+    <alias>water pump</alias>
+    <exit to="forrest" />
+  </object>
+  <object name="Stelzenberg town center">
+    <inherit name="editor_room" />
+    <exit to="home">
+      <scenery type="boolean">false</scenery>
+      <runscript />
+    </exit>
+    <exit to="forrest">
+      <locked />
+      <lockmessage>I'm not going back already! I'm tired.</lockmessage>
+    </exit>
+  </object>
+  <object name="Snoopy place">
+    <inherit name="editor_room" />
+    <exit to="home">
+      <locked />
+      <lockmessage>I have to find the artifact first. The vampire will take my blood otherwise...</lockmessage>
+    </exit>
+  </object>
+  <object name="home">
+    <inherit name="editor_room" />
+    <enter type="script">
+      msg ("Surprise!!! There's a surprise party for your birthday!")
+      finish
+    </enter>
+  </object>
+</asl>
