@@ -25,72 +25,307 @@
       <gender>he</gender>
       <article>him</article>
       <look>So handsome!</look>
-      <object name="backpack">
-        <inherit name="editor_object" />
-        <inherit name="container_open" />
-        <feature_container />
-        <listchildren />
-        <look>Almost empty! I should have left it home.</look>
-        <displayverbs type="stringlist">
-          <value>Look at</value>
-          <value>Open</value>
-        </displayverbs>
-        <object name="selfie stick">
-          <inherit name="editor_object" />
-          <scenery />
-          <drop type="boolean">false</drop>
-        </object>
-        <object name="apple">
-          <inherit name="editor_object" />
-          <usedefaultprefix />
-          <scenery />
-        </object>
-      </object>
       <object name="glasses">
         <inherit name="editor_object" />
         <usedefaultprefix type="boolean">false</usedefaultprefix>
         <scenery />
         <drop type="boolean">false</drop>
         <dropmsg>Never! They are part of me! </dropmsg>
+        <displayverbs type="stringlist">
+          <value>Look at</value>
+        </displayverbs>
+        <look>Gotta be careful with these. Last pair, I sat on. Second last pair disintegrated in the sea. Third last pair...</look>
+        <inventoryverbs type="stringlist">
+          <value>Look at</value>
+        </inventoryverbs>
       </object>
       <object name="smart phone">
         <inherit name="editor_object" />
         <scenery />
+        <look>It's rugged and almost waterproof. </look>
+        <displayverbs type="stringlist">
+          <value>Look at</value>
+        </displayverbs>
+        <inventoryverbs type="stringlist">
+          <value>Look at</value>
+        </inventoryverbs>
+        <listentomusic type="script">
+          ShowYouTube ("ubA7evjRm6M")
+        </listentomusic>
+        <usegeocacheapp type="script">
+          UnlockExit (OldWaterPump)
+          MakeExitVisible (OldWaterPump)
+          msg ("Oh! There's a new geo cache nearby!")
+        </usegeocacheapp>
+      </object>
+      <object name="selfie stick">
+        <inherit name="editor_object" />
+        <scenery />
+        <drop type="boolean">false</drop>
+        <look>I never thought it could be fun, but now I know you can have a good time with one of these babies.</look>
+        <displayverbs type="stringlist">
+          <value>Look at</value>
+        </displayverbs>
+        <usestandardverblist />
+        <useindividualverblist type="boolean">false</useindividualverblist>
+        <inventoryverbs type="stringlist">
+          <value>Look at</value>
+          <value>Use</value>
+        </inventoryverbs>
+        <feature_usegive />
+      </object>
+      <object name="apple">
+        <inherit name="editor_object" />
+        <usedefaultprefix />
+        <scenery />
+        <displayverbs type="stringlist">
+          <value>Look at</value>
+        </displayverbs>
+        <look>This is a generous lunch.</look>
+        <inventoryverbs type="stringlist">
+          <value>Look at</value>
+        </inventoryverbs>
+        <usestandardverblist />
+        <eat type="script">
+          RemoveObject (apple)
+          msg ("That was delicious.")
+        </eat>
       </object>
     </object>
     <object name="berry bushes">
       <inherit name="editor_object" />
-      <scenery />
+      <inherit name="plural" />
+      <scenery type="boolean">false</scenery>
       <look>Blueberries! Look delicious!</look>
+      <usedefaultprefix type="boolean">false</usedefaultprefix>
+      <displayverbs type="stringlist">
+        <value>Look at</value>
+      </displayverbs>
+      <pluck type="script">
+        if (not Got(blueberries)) {
+          MoveObject (blueberries, player)
+        }
+      </pluck>
       <object name="blueberries">
         <inherit name="editor_object" />
         <usedefaultprefix />
-        <scenery />
+        <scenery type="boolean">false</scenery>
+        <inventoryverbs type="stringlist">
+          <value>Look at</value>
+          <value>Use</value>
+        </inventoryverbs>
+        <displayverbs type="stringlist">
+          <value>Look at</value>
+        </displayverbs>
+        <feature_usegive />
+        <look>Yummi!</look>
+        <drop type="boolean">false</drop>
+        <take />
+        <eat type="script">
+          MoveObject (blueberries, berry bushes)
+        </eat>
+        <selfuseon type="scriptdictionary">
+          <item key="piece of paper">
+            msg ("Adrian M. Popescu - 22 June 2015 ")
+            SetObjectFlagOn (piece of paper, "isSigned")
+          </item>
+        </selfuseon>
+        <use />
       </object>
     </object>
     <object name="bike">
       <inherit name="editor_object" />
-      <alias>bicycle</alias>
       <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <scenery />
-      <look>My broken bike :( I've tried to repair it but I've lost a nail. </look>
+      <scenery type="boolean">false</scenery>
       <drop type="boolean">false</drop>
+      <displayverbs type="stringlist">
+        <value>Look at</value>
+      </displayverbs>
+      <look type="script">
+        firsttime {
+          msg ("My awesome mountain bike. Too bad it's blue - don't know why I keep getting blue things, when my favorite color is orange. And too bad it's broken. I've tried to repair it but I've lost a bolt :(")
+        }
+        otherwise {
+          msg ("Still blue, still broken :(")
+        }
+      </look>
+      <isFixed type="boolean">false</isFixed>
     </object>
-    <exit to="old water pump">
+    <exit name="OldWaterPump" to="old water pump">
       <scenery type="boolean">false</scenery>
       <visible type="boolean">false</visible>
-      <locked type="boolean">false</locked>
-    </exit>
-    <exit to="Stelzenberg town center">
       <locked />
-      <lockmessage>I can't go there! My bike is broken! I must fix it somehow!</lockmessage>
+      <lockmessage>I don't know what is there.</lockmessage>
+      <prefix>to the </prefix>
       <runscript type="boolean">false</runscript>
+      <look>The old water pump is nearby. I can try to find the cache since I am stuck here anyway.</look>
+      <lookonly type="boolean">false</lookonly>
+      <script type="script">
+        msg ("You are near the old water pump.")
+        MoveObject (player, old water pump)
+      </script>
+    </exit>
+    <exit name="ExitToStelzenberg" to="Stelzenberg town center">
+      <locked type="boolean">false</locked>
+      <lockmessage type="string"></lockmessage>
+      <runscript />
+      <prefix>to</prefix>
+      <script type="script">
+        if (not GetBoolean(bike, "isFixed")) {
+          msg ("I can't go there! My bike is broken! I must fix it somehow!")
+        }
+        else if (Got(strange box)) {
+          msg ("I must return the geo cache.")
+        }
+        else {
+          MoveObject (player, Stelzenberg town center)
+        }
+      </script>
+      <scenery type="boolean">false</scenery>
     </exit>
   </object>
   <object name="old water pump">
     <inherit name="editor_room" />
-    <alias>water pump</alias>
-    <exit to="forrest" />
+    <descprefix>You are </descprefix>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
+    <prefix>near an</prefix>
+    <exit alias="woods" to="forrest">
+      <prefix>back in the </prefix>
+    </exit>
+    <object name="large black bolt">
+      <inherit name="editor_object" />
+      <inventoryverbs type="stringlist">
+        <value>Look at</value>
+        <value>Use</value>
+      </inventoryverbs>
+      <feature_usegive />
+      <selfuseon type="scriptdictionary">
+        <item key="bike">
+          msg ("It's way bigger than the one I've lost. It's useless ...")
+        </item>
+        <item key="strange box">
+          MoveObject (large black bolt, strange box)
+          msg ("Perfect!")
+        </item>
+      </selfuseon>
+      <look type="string"></look>
+      <scenery />
+      <visible type="boolean">false</visible>
+      <use />
+    </object>
+    <object name="water pump">
+      <inherit name="editor_object" />
+      <look>Blue old water pump. Why is this placed in the middle of the woods??</look>
+      <displayverbs type="stringlist">
+        <value>Look at</value>
+      </displayverbs>
+      <search type="script">
+        firsttime {
+          MoveObject (large black bolt, player)
+          msg ("Look! A {object:large black bolt}! Is this the geo cache? Or can this fix my {object:bike}??")
+          MakeObjectVisible (large black bolt)
+        }
+        otherwise {
+          if (not Got(strange box)) {
+            MoveObject (strange box, player)
+            msg ("That's a {object:strange box}! It's full of ants! At least there are no slugs! This must be the geo cache! Hurray! Now let's open it and see what it contains.")
+            MakeObjectVisible (strange box)
+          }
+          else {
+            msg ("There's nothing else.")
+          }
+        }
+      </search>
+      <inventoryverbs type="stringlist">
+        <value>Look at</value>
+        <value>Use</value>
+      </inventoryverbs>
+    </object>
+    <object name="strange box">
+      <inherit name="editor_object" />
+      <inherit name="container_closed" />
+      <inherit name="container_lockable" />
+      <inventoryverbs type="stringlist">
+        <value>Look at</value>
+        <value>Use</value>
+      </inventoryverbs>
+      <look type="script">
+        if (not strange box.isopen) {
+          msg ("It's locked! There's some sort of cypher.")
+          msg ("{random:BDIUVOH:CEJVWPI:DFKWXQJ:EGLXYRK:FHMYZSL:GINZATM:HJOABUN:IKPBCVO:JLQCDWP:KMRDEXQ:LNSEFYR:MOTFGZS:NPUGHAT:OQVHIBU:PRWIJCV:QSXJKDW:RTYKLEX:SUZLMFY:TVAMNGZ:UWBNOHA:VXCOPIB:WYDPQJC:XZEQRKD:YAFRSLE:ZBGSTMF}")
+          get input {
+            if (result="ACHTUNG" or result="achtung") {
+              HelperOpenObject (strange box)
+              msg ("Yey! It's open! It contains {object:small bolt}, {object:no value objects} and a {object:piece of paper}.")
+              SetObjectFlagOn (player, "hasGeoCache")
+            }
+            else {
+              msg ("I'll have to keep trying!")
+            }
+          }
+        }
+        else {
+          msg ("Took some sweat, but I've already opened it.")
+        }
+      </look>
+      <visible type="boolean">false</visible>
+      <scenery />
+      <feature_container />
+      <open type="boolean">false</open>
+      <close type="boolean">false</close>
+      <hidechildren type="boolean">false</hidechildren>
+      <listchildren type="boolean">false</listchildren>
+      <autounlock type="boolean">false</autounlock>
+      <displayverbs type="stringlist">
+        <value>Look at</value>
+      </displayverbs>
+      <feature_usegive />
+      <use />
+      <selfuseon type="scriptdictionary">
+        <item key="water pump">
+          if ((not Contains (strange box,small bolt)) and (not Contains (strange box, large black bolt))) {
+            msg ("I must give something in return for the small bolt. It was really helpful.")
+          }
+          else if (not GetBoolean(piece of paper, "isSigned")) {
+            msg ("I have to sign the log. I'm the first to find it! Have to!")
+          }
+          else {
+            MoveObject (strange box, water pump)
+          }
+        </item>
+      </selfuseon>
+      <object name="small bolt">
+        <inherit name="editor_object" />
+        <inventoryverbs type="stringlist">
+          <value>Look at</value>
+          <value>Use</value>
+        </inventoryverbs>
+        <feature_usegive />
+        <use />
+        <selfuseon type="scriptdictionary">
+          <item key="bike">
+            SetObjectFlagOn (bike, "isFixed")
+            msg ("Exactly what I needed! My beautiful bike is working again!")
+            RemoveObject (small bolt)
+          </item>
+        </selfuseon>
+      </object>
+      <object name="useless stuff">
+        <inherit name="editor_object" />
+        <inventoryverbs type="stringlist">
+          <value>Look at</value>
+        </inventoryverbs>
+        <look><![CDATA[Let's see... Three PC keys (a Steuerung, an Alternativ, and an Entfernen) , a small blue shit, and a very romantic poem<br/><br/>Îți aduci aminte ziua când ți-am spus că ești frumoasă, <br/>Când, în șoaptele pădurii, poate că te-am sărutat,<br/>Ascultând ecoul rece, înspre toamna friguroasă?<br/><br/>signed G. Bacovia <br/>Brrr.. .reminds me of Pașcanu.]]></look>
+      </object>
+      <object name="piece of paper">
+        <inherit name="editor_object" />
+        <inventoryverbs type="stringlist">
+          <value>Look at</value>
+        </inventoryverbs>
+        <look><![CDATA[No one signed the log yet. I must be the first one to find it :)<br/>I must have lost that bloody pen, but I'm not leaving 'till I sign.]]></look>
+        <isSigned type="boolean">false</isSigned>
+      </object>
+    </object>
   </object>
   <object name="Stelzenberg town center">
     <inherit name="editor_room" />
@@ -117,4 +352,24 @@
       finish
     </enter>
   </object>
+  <verb>
+    <property>listentomusic</property>
+    <pattern>listen to music</pattern>
+    <defaultexpression>"You can't listen to music " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>usegeocacheapp</property>
+    <pattern>use geocache app</pattern>
+    <defaultexpression>"You can't use geocache app " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>callnatalie</property>
+    <pattern>call natalie</pattern>
+    <defaultexpression>"You can't call natalie " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>pluck</property>
+    <pattern>pluck</pattern>
+    <defaultexpression>"You can't pluck " + object.article + "."</defaultexpression>
+  </verb>
 </asl>
