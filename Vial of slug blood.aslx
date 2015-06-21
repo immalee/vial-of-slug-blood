@@ -73,6 +73,15 @@
           <value>Use</value>
         </inventoryverbs>
         <feature_usegive />
+        <usemenuprompt>{object:glasses},  {object:smart phone}, {object:apple},  {object:bike}, {object:strange box}, {object:small bolt},</usemenuprompt>
+        <use type="script">
+          ShowUseMenu (this)
+        </use>
+        <selfuseon type="scriptdictionary">
+          <item key="smart phone">
+            picture ("selfie.jpg")
+          </item>
+        </selfuseon>
       </object>
       <object name="apple">
         <inherit name="editor_object" />
@@ -84,6 +93,7 @@
         <look>This is a generous lunch.</look>
         <inventoryverbs type="stringlist">
           <value>Look at</value>
+          <value>Eat</value>
         </inventoryverbs>
         <usestandardverblist />
         <eat type="script">
@@ -105,6 +115,9 @@
         if (not Got(blueberries)) {
           MoveObject (blueberries, player)
         }
+        else {
+          msg ("I already have more than I can eat.")
+        }
       </pluck>
       <object name="blueberries">
         <inherit name="editor_object" />
@@ -123,14 +136,17 @@
         <take />
         <eat type="script">
           MoveObject (blueberries, berry bushes)
+          msg ("Delicious! ")
         </eat>
+        <use type="script">
+          ShowUseMenu (this)
+        </use>
         <selfuseon type="scriptdictionary">
           <item key="piece of paper">
             msg ("Adrian M. Popescu - 22 June 2015 ")
             SetObjectFlagOn (piece of paper, "isSigned")
           </item>
         </selfuseon>
-        <use />
       </object>
     </object>
     <object name="bike">
@@ -141,6 +157,7 @@
       <displayverbs type="stringlist">
         <value>Look at</value>
       </displayverbs>
+      <isFixed type="boolean">false</isFixed>
       <look type="script">
         firsttime {
           msg ("My awesome mountain bike. Too bad it's blue - don't know why I keep getting blue things, when my favorite color is orange. And too bad it's broken. I've tried to repair it but I've lost a bolt :(")
@@ -149,7 +166,6 @@
           msg ("Still blue, still broken :(")
         }
       </look>
-      <isFixed type="boolean">false</isFixed>
     </object>
     <exit name="OldWaterPump" to="old water pump">
       <scenery type="boolean">false</scenery>
@@ -170,6 +186,7 @@
       <lockmessage type="string"></lockmessage>
       <runscript />
       <prefix>to</prefix>
+      <scenery type="boolean">false</scenery>
       <script type="script">
         if (not GetBoolean(bike, "isFixed")) {
           msg ("I can't go there! My bike is broken! I must fix it somehow!")
@@ -181,8 +198,12 @@
           MoveObject (player, Stelzenberg town center)
         }
       </script>
-      <scenery type="boolean">false</scenery>
     </exit>
+    <object name="slug">
+      <inherit name="editor_object" />
+      <visible type="boolean">false</visible>
+      <scenery />
+    </object>
   </object>
   <object name="old water pump">
     <inherit name="editor_room" />
@@ -199,6 +220,13 @@
         <value>Use</value>
       </inventoryverbs>
       <feature_usegive />
+      <look>It's a large and black bolt. </look>
+      <scenery />
+      <visible type="boolean">false</visible>
+      <usemenuprompt>{object:glasses},  {object:smart phone}, {object:selfie stick}, {object:apple}, {object:blueberries}, {object:bike}, {object:strange box}, {object:small bolt}, {object:useless stuff}, {object:piece of paper}</usemenuprompt>
+      <use type="script">
+        ShowUseMenu (this)
+      </use>
       <selfuseon type="scriptdictionary">
         <item key="bike">
           msg ("It's way bigger than the one I've lost. It's useless ...")
@@ -208,10 +236,6 @@
           msg ("Perfect!")
         </item>
       </selfuseon>
-      <look type="string"></look>
-      <scenery />
-      <visible type="boolean">false</visible>
-      <use />
     </object>
     <object name="water pump">
       <inherit name="editor_object" />
@@ -219,6 +243,10 @@
       <displayverbs type="stringlist">
         <value>Look at</value>
       </displayverbs>
+      <inventoryverbs type="stringlist">
+        <value>Look at</value>
+        <value>Use</value>
+      </inventoryverbs>
       <search type="script">
         firsttime {
           MoveObject (large black bolt, player)
@@ -236,10 +264,6 @@
           }
         }
       </search>
-      <inventoryverbs type="stringlist">
-        <value>Look at</value>
-        <value>Use</value>
-      </inventoryverbs>
     </object>
     <object name="strange box">
       <inherit name="editor_object" />
@@ -249,25 +273,6 @@
         <value>Look at</value>
         <value>Use</value>
       </inventoryverbs>
-      <look type="script">
-        if (not strange box.isopen) {
-          msg ("It's locked! There's some sort of cypher.")
-          msg ("{random:BDIUVOH:CEJVWPI:DFKWXQJ:EGLXYRK:FHMYZSL:GINZATM:HJOABUN:IKPBCVO:JLQCDWP:KMRDEXQ:LNSEFYR:MOTFGZS:NPUGHAT:OQVHIBU:PRWIJCV:QSXJKDW:RTYKLEX:SUZLMFY:TVAMNGZ:UWBNOHA:VXCOPIB:WYDPQJC:XZEQRKD:YAFRSLE:ZBGSTMF}")
-          get input {
-            if (result="ACHTUNG" or result="achtung") {
-              HelperOpenObject (strange box)
-              msg ("Yey! It's open! It contains {object:small bolt}, {object:no value objects} and a {object:piece of paper}.")
-              SetObjectFlagOn (player, "hasGeoCache")
-            }
-            else {
-              msg ("I'll have to keep trying!")
-            }
-          }
-        }
-        else {
-          msg ("Took some sweat, but I've already opened it.")
-        }
-      </look>
       <visible type="boolean">false</visible>
       <scenery />
       <feature_container />
@@ -280,17 +285,44 @@
         <value>Look at</value>
       </displayverbs>
       <feature_usegive />
-      <use />
+      <look type="script">
+        if (not strange box.isopen) {
+          msg ("It's locked! There's some sort of cypher.")
+          msg ("{random:BDIUVOH:CEJVWPI:DFKWXQJ:EGLXYRK:FHMYZSL:GINZATM:HJOABUN:IKPBCVO:JLQCDWP:KMRDEXQ:LNSEFYR:MOTFGZS:NPUGHAT:OQVHIBU:PRWIJCV:QSXJKDW:RTYKLEX:SUZLMFY:TVAMNGZ:UWBNOHA:VXCOPIB:WYDPQJC:XZEQRKD:YAFRSLE:ZBGSTMF}")
+          get input {
+            if (result="ACHTUNG" or result="achtung") {
+              HelperOpenObject (strange box)
+              msg ("Yey! It's open! It contains a {object:small bolt}, some {object:useless stuff} and a {object:piece of paper}.")
+              SetObjectFlagOn (player, "hasGeoCache")
+            }
+            else {
+              msg ("I'll have to keep trying!")
+            }
+          }
+        }
+        else {
+          msg ("Took some sweat, but I've already opened it.")
+        }
+      </look>
+      <use type="script">
+        ShowUseMenu (this)
+      </use>
       <selfuseon type="scriptdictionary">
         <item key="water pump">
           if ((not Contains (strange box,small bolt)) and (not Contains (strange box, large black bolt))) {
             msg ("I must give something in return for the small bolt. It was really helpful.")
           }
           else if (not GetBoolean(piece of paper, "isSigned")) {
-            msg ("I have to sign the log. I'm the first to find it! Have to!")
+            if (not strange box.isopen) {
+              msg ("I think there's a log inside. I should try to open it.")
+            }
+            else {
+              msg ("I have to sign the log. I'm the first to find it! Have to!")
+            }
           }
           else {
             MoveObject (strange box, water pump)
+            msg ("Right where I've found it.")
           }
         </item>
       </selfuseon>
@@ -301,7 +333,10 @@
           <value>Use</value>
         </inventoryverbs>
         <feature_usegive />
-        <use />
+        <look>It's a small and cute bolt.</look>
+        <use type="script">
+          ShowUseMenu (this)
+        </use>
         <selfuseon type="scriptdictionary">
           <item key="bike">
             SetObjectFlagOn (bike, "isFixed")
@@ -336,6 +371,7 @@
     <exit to="forrest">
       <locked />
       <lockmessage>I'm not going back already! I'm tired.</lockmessage>
+      <prefix> to the </prefix>
     </exit>
   </object>
   <object name="Snoopy place">
@@ -372,4 +408,12 @@
     <pattern>pluck</pattern>
     <defaultexpression>"You can't pluck " + object.article + "."</defaultexpression>
   </verb>
+  <function name="ShowUseMenu" parameters="currentObject">
+    msg ("What to use the " + currentObject.name + " with?")
+    foreach (obj, ScopeVisible()) {
+      if (not obj = currentObject) {
+        msg (CommandLink("use " +currentObject.name+ " with " + obj.name ,obj.name))
+      }
+    }
+  </function>
 </asl>
