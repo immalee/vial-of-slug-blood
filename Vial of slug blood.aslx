@@ -14,17 +14,26 @@
   </game>
   <object name="forrest">
     <inherit name="editor_room" />
-    <objectslistprefix type="string"></objectslistprefix>
+    <objectslistprefix>You can see </objectslistprefix>
     <description>It is a perfect, sunny summer day. The birds are singing. You have your {object:bike} near you. </description>
     <usedefaultprefix type="boolean">false</usedefaultprefix>
     <prefix>the</prefix>
     <object name="player">
       <inherit name="editor_object" />
       <inherit name="editor_player" />
+      <inherit name="male" />
       <scenery />
       <gender>he</gender>
       <article>him</article>
-      <look>So handsome!</look>
+      <look><![CDATA[So handsome! <br/>If threesome is ... then why is handsome  a good thing?]]></look>
+      <visible />
+      <alias>myself</alias>
+      <displayverbs type="stringlist">
+        <value>Look at</value>
+      </displayverbs>
+      <inventoryverbs type="stringlist">
+        <value>Look at</value>
+      </inventoryverbs>
       <object name="glasses">
         <inherit name="editor_object" />
         <usedefaultprefix type="boolean">false</usedefaultprefix>
@@ -81,6 +90,10 @@
           <item key="smart phone">
             picture ("selfie.jpg")
           </item>
+          <item key="slug">
+            RemoveObject (slug)
+            msg ("Whiew! I've extended the stick at max length, but it was still a close one.")
+          </item>
         </selfuseon>
       </object>
       <object name="apple">
@@ -114,11 +127,13 @@
       <pluck type="script">
         if (not Got(blueberries)) {
           MoveObject (blueberries, player)
+          msg ("Now I have a handful of fresh {object:blueberries}.")
         }
         else {
           msg ("I already have more than I can eat.")
         }
       </pluck>
+      <prefix>some</prefix>
       <object name="blueberries">
         <inherit name="editor_object" />
         <usedefaultprefix />
@@ -151,6 +166,7 @@
     </object>
     <object name="bike">
       <inherit name="editor_object" />
+      <inherit name="surface" />
       <usedefaultprefix type="boolean">false</usedefaultprefix>
       <scenery type="boolean">false</scenery>
       <drop type="boolean">false</drop>
@@ -160,12 +176,27 @@
       <isFixed type="boolean">false</isFixed>
       <look type="script">
         firsttime {
-          msg ("My awesome mountain bike. Too bad it's blue - don't know why I keep getting blue things, when my favorite color is orange. And too bad it's broken. I've tried to repair it but I've lost a bolt :(")
+          msg ("My awesome mountain bike. Too bad it's blue - don't know why I keep getting blue things, when my favorite color is orange.")
+          if (not bike.isFixed) {
+            msg ("And too bad it's broken. I've tried to repair it but I've lost a bolt :(")
+          }
         }
         otherwise {
-          msg ("Still blue, still broken :(")
+          if (not bike.isFixed) {
+            msg ("Still blue, still broken. A really sad bike :(")
+          }
+          else {
+            msg ("It's fixed now. But it's blue!")
+          }
+          if (Contains (bike,slug)) {
+            msg ("I'm not getting near that monster.")
+          }
         }
       </look>
+      <feature_container />
+      <listchildren />
+      <listchildrenprefix>On the bike there's </listchildrenprefix>
+      <prefix>your </prefix>
     </object>
     <exit name="OldWaterPump" to="old water pump">
       <scenery type="boolean">false</scenery>
@@ -194,6 +225,11 @@
         else if (Got(strange box)) {
           msg ("I must return the geo cache.")
         }
+        else if (Contains (forrest,slug)) {
+          MoveObject (slug, bike)
+          MakeObjectVisible (slug)
+          msg ("There's a horiible creature on my bike!. I-I-I'm n-n-not touching that! Ewgh!")
+        }
         else {
           MoveObject (player, Stelzenberg town center)
         }
@@ -202,7 +238,7 @@
     <object name="slug">
       <inherit name="editor_object" />
       <visible type="boolean">false</visible>
-      <scenery />
+      <scenery type="boolean">false</scenery>
     </object>
   </object>
   <object name="old water pump">
@@ -416,4 +452,31 @@
       }
     }
   </function>
+  <walkthrough name="WoodsHappyPath">
+    <steps type="simplestringlist">
+      use geocache app smart phone
+      go to old water pump
+      search water pump
+      search water pump
+      look at strange box
+      achtung
+      go to woods
+      use small bolt
+      use small bolt with bike
+      pluck berry bushes
+      use blueberries
+      use blueberries with piece of paper
+      use large black bolt
+      use large black bolt with strange box
+      go to old water pump
+      use strange box
+      use strange box with water pump
+      go to woods
+      go to Stelzenberg town center
+      look at bike
+      use selfie stick
+      use selfie stick with slug
+      go to Stelzenberg town center
+    </steps>
+  </walkthrough>
 </asl>
