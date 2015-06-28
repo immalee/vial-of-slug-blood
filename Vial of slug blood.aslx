@@ -94,6 +94,24 @@
             RemoveObject (slug)
             msg ("Whew! I've extended the stick at max length, but it was still a close one.")
           </item>
+          <item key="trash cans">
+            msg ("What am I thinking? I just bought it. And it's fun. Also really useful on slugs.")
+          </item>
+          <item key="berry bushes">
+            msg ("Surely I can rattle some berries to the ground just for fun, but I think it would be easier and nicer if I just used my hands.")
+          </item>
+          <item key="strange box">
+            msg ("It's too big for the box. And I have a feeling it's more useful than I once thought.")
+          </item>
+          <item key="bike">
+            msg ("Goddamn bike, I'll teach you a lesson! Arrgh! Just you wait... No, I can't do it. I love my bikey. It's my baby!")
+          </item>
+          <item key="glasses">
+            msg ("Note to self: glasses destruction method #427")
+          </item>
+          <item key="apple">
+            msg ("apple on a stick")
+          </item>
         </selfuseon>
       </object>
       <object name="apple">
@@ -160,6 +178,12 @@
           <item key="piece of paper">
             msg ("Adrian M. Popescu - 22 June 2015 ")
             SetObjectFlagOn (piece of paper, "isSigned")
+          </item>
+          <item key="strange box">
+            msg ("...so the next person can find mushy half-rotten berries? No.")
+          </item>
+          <item key="slug">
+            msg ("I've tried, but I just can't bribe him.")
           </item>
         </selfuseon>
       </object>
@@ -239,6 +263,10 @@
       <inherit name="editor_object" />
       <visible type="boolean">false</visible>
       <scenery type="boolean">false</scenery>
+      <take type="script">
+        msg ("Barehanded? Seriously?!")
+      </take>
+      <look><![CDATA[Reminds me of an old movie.<br/>In this film, a small town is plagued by a series of grisly deaths. The local health inspector investigates and discovers that the "killers" are actually mutant garden slugs. The town had been built on top of a toxic waste dump, which turned the normally harmless slugs into ravenous carnivores.]]></look>
     </object>
   </object>
   <object name="old water pump">
@@ -286,6 +314,12 @@
         <item key="strange box">
           MoveObject (large black bolt, strange box)
           msg ("Perfect!")
+        </item>
+        <item key="water pump">
+          msg ("Neah, I don't want to put it back.")
+        </item>
+        <item key="glasses">
+          msg ("Imagine glasses with screws this big...")
         </item>
       </selfuseon>
     </object>
@@ -377,7 +411,13 @@
             msg ("Right where I've found it.")
           }
         </item>
+        <item key="glasses">
+          msg ("If only I could use the broken frame to pick the lock... Hell, why do I keep tricking myself into destroying my glasses?")
+        </item>
       </selfuseon>
+      <selfuseanything type="script">
+		msg ("What? Why?")
+      </selfuseanything>
       <object name="small bolt">
         <inherit name="editor_object" />
         <inventoryverbs type="stringlist">
@@ -567,7 +607,7 @@
     </object>
     <object name="Snoopy garage">
       <inherit name="editor_object" />
-      <look>Looks so happy! I wander what it's writing. A love letter maybe?</look>
+      <look>Looks so happy! I wonder what it's writing. A love letter maybe?</look>
       <search>I can't find anything. </search>
       <displayverbs type="stringlist">
         <value>Look at</value>
@@ -796,7 +836,6 @@
       use selfie stick
       use selfie stick with berry bushes
       use selfie stick with bike
-      use selfie stick with player
       use selfie stick with glasses
       use selfie stick with apple
       use selfie stick with smart phone
@@ -811,10 +850,8 @@
       close large black bolt
       use large black bolt
       use large black bolt with water pump
-      use large black bolt with player
       use large black bolt with glasses
       use large black bolt with smart phone
-      use large black bolt with selfie stick
       go to woods
       use large black bolt
       use large black bolt with berry bushes
@@ -827,12 +864,8 @@
       use strange box
       fsd
       use strange box
-      use strange box with water pump
-      use strange box with player
       use strange box with glasses
       use strange box with smart phone
-      use strange box with selfie stick
-      use strange box with large black bolt
       look at strange box
       achtung
       look at useless stuff
@@ -840,9 +873,6 @@
       look at small bolt
       look at strange box
       use strange box
-      use strange box with piece of paper
-      use strange box with useless stuff
-      use strange box with small bolt
       use strange box with large black bolt
       use strange box with selfie stick
       use strange box with smart phone
@@ -895,6 +925,7 @@
       look at Snoopy garage
       search Snoopy garage
       look at trash cans
+      use selfie stick with trash cans
       search inside trash cans
       event:ShowMenuResponse;Organic
       search inside trash cans
@@ -1039,6 +1070,7 @@
       look at Snoopy garage
       search Snoopy garage
       look at trash cans
+      use selfie stick with trash cans
       search inside trash cans
       event:ShowMenuResponse;Organic
       search inside trash cans

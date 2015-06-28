@@ -56,19 +56,16 @@ smart phone
 apple
 
 > use selfie stick with berry bushes
-You can't use it that way.
+Surely I can rattle some berries to the ground just for fun, but I think it would be easier and nicer if I just used my hands.
 
 > use selfie stick with bike
-You can't use it that way.
-
-> use selfie stick with player
-I can't see that. (player)
+Goddamn bike, I'll teach you a lesson! Arrgh! Just you wait... No, I can't do it. I love my bikey. It's my baby!
 
 > use selfie stick with glasses
-You can't use it that way.
+Note to self: glasses destruction method #427
 
 > use selfie stick with apple
-You can't use it that way.
+apple on a stick
 
 > use selfie stick with smart phone
 
@@ -111,18 +108,12 @@ smart phone
 selfie stick
 
 > use large black bolt with water pump
-You can't use it that way.
-
-> use large black bolt with player
-I can't see that. (player)
+Neah, I don't want to put it back.
 
 > use large black bolt with glasses
-You can't use it that way.
+Imagine glasses with screws this big...
 
 > use large black bolt with smart phone
-You can't use it that way.
-
-> use large black bolt with selfie stick
 You can't use it that way.
 
 > go to woods
@@ -177,27 +168,15 @@ smart phone
 selfie stick
 large black bolt
 
-> use strange box with water pump
-I think there's a log inside. I should try to open it.
-
-> use strange box with player
-I can't see that. (player)
-
 > use strange box with glasses
-You can't use it that way.
+If only I could use the broken frame to pick the lock... Hell, why do I keep tricking myself into destroying my glasses?
 
 > use strange box with smart phone
-You can't use it that way.
-
-> use strange box with selfie stick
-You can't use it that way.
-
-> use strange box with large black bolt
-You can't use it that way.
+What? Why?
 
 > look at strange box
 It's locked! There's some sort of cypher.
-GINZATM
+VXCOPIB
 Yay! It's open! It contains a small bolt, some useless stuff and a piece of paper.
 
 > look at useless stuff
@@ -231,26 +210,17 @@ small bolt
 useless stuff
 piece of paper
 
-> use strange box with piece of paper
-You can't use it that way.
-
-> use strange box with useless stuff
-You can't use it that way.
-
-> use strange box with small bolt
-You can't use it that way.
-
 > use strange box with large black bolt
-You can't use it that way.
+What? Why?
 
 > use strange box with selfie stick
-You can't use it that way.
+What? Why?
 
 > use strange box with smart phone
-You can't use it that way.
+What? Why?
 
 > use strange box with glasses
-You can't use it that way.
+If only I could use the broken frame to pick the lock... Hell, why do I keep tricking myself into destroying my glasses?
 
 > use strange box with water pump
 I have to sign the log. I'm the first to find it! Have to!
@@ -346,7 +316,7 @@ piece of paper
 I must give something in return for the small bolt. It was really helpful.
 
 > use strange box with large black bolt
-You can't use it that way.
+What? Why?
 
 > use large black bolt
 What to use the large black bolt with?
@@ -374,7 +344,7 @@ useless stuff
 piece of paper
 
 > use selfie stick with strange box
-You can't use it that way.
+It's too big for the box. And I have a feeling it's more useful than I once thought.
 
 > use blueberries
 What to use the blueberries with?
@@ -388,7 +358,7 @@ useless stuff
 piece of paper
 
 > use blueberries with strange box
-You can't use it that way.
+...so the next person can find mushy half-rotten berries? No.
 
 > use strange box
 What to use the strange box with?
@@ -420,10 +390,11 @@ I'm not getting near that monster.
 On the bike there's a slug.
 
 > look at slug
-Nothing out of the ordinary.
+Reminds me of an old movie.
+In this film, a small town is plagued by a series of grisly deaths. The local health inspector investigates and discovers that the "killers" are actually mutant garden slugs. The town had been built on top of a toxic waste dump, which turned the normally harmless slugs into ravenous carnivores.
 
 > take slug
-You can't take it.
+Barehanded? Seriously?!
 
 > use blueberries
 What to use the blueberries with?
@@ -435,7 +406,7 @@ smart phone
 selfie stick
 
 > use blueberries with slug
-You can't use it that way.
+I've tried, but I just can't bribe him.
 
 > use selfie stick
 What to use the selfie stick with?
@@ -493,13 +464,16 @@ He's Lord Slug of The Vile Blood!! I shouldn't know that... Is he putting though
 He says nothing.
 
 > look at Snoopy garage
-Looks so happy! I wander what it's writing. A love letter maybe?
+Looks so happy! I wonder what it's writing. A love letter maybe?
 
 > search Snoopy garage
 I can't find anything. 
 
 > look at trash cans
 Three trash cans for different waste types. Everything is recycled in Germany! 
+
+> use selfie stick with trash cans
+What am I thinking? I just bought it. And it's fun. Also really useful on slugs.
 
 > search inside trash cans
 I'm low on self-esteem right now, but not *that* low.
