@@ -635,5 +635,131 @@
       go to home
     </steps>
   </walkthrough>
-  <walkthrough name="Exploration" />
+  <walkthrough name="Exploration">
+    <steps type="simplestringlist">
+      look at glasses
+      look at smart phone
+      listen to music smart phone
+      use geocache app smart phone
+      go to Stelzenberg town center
+      look at berry bushes
+      pluck berry bushes
+      eat blueberries
+      pluck berry bushes
+      look at blueberries
+      eat blueberries
+      look at bike
+      look at bike
+      use selfie stick
+      use selfie stick with berry bushes
+      use selfie stick with bike
+      use selfie stick with player
+      use selfie stick with glasses
+      use selfie stick with apple
+      use selfie stick with smart phone
+      look at apple
+      eat apple
+      eat apple
+      go to old water pump
+      look at water pump
+      search water pump
+      look at large black bolt
+      use large black bolt
+      use large black bolt with water pump
+      use large black bolt with player
+      use large black bolt with glasses
+      use large black bolt with smart phone
+      use large black bolt with selfie stick
+      go to woods
+      use large black bolt
+      use large black bolt with berry bushes
+      use large black bolt with bike
+      go to old water pump
+      search water pump
+      search water pump
+      search water pump
+      look at strange box
+      use strange box
+      fsd
+      use strange box
+      use strange box with water pump
+      use strange box with player
+      use strange box with glasses
+      use strange box with smart phone
+      use strange box with selfie stick
+      use strange box with large black bolt
+      look at strange box
+      achtung
+      look at useless stuff
+      look at piece of paper
+      look at small bolt
+      look at strange box
+      use strange box
+      use strange box with piece of paper
+      use strange box with useless stuff
+      use strange box with small bolt
+      use strange box with large black bolt
+      use strange box with selfie stick
+      use strange box with smart phone
+      use strange box with glasses
+      use strange box with water pump
+      go to woods
+      look at bike
+      use small bolt
+      use small bolt with bike
+      look at bike
+      go to Stelzenberg town center
+      use small bolt with berry bushes
+      pluck berry bushes
+      use blueberries
+      use blueberries with piece of paper
+      use blueberries
+      use blueberries with useless stuff
+      use blueberries with berry bushes
+      go to old water pump
+      use strange box
+      use strange box with water pump
+      use strange box with large black bolt
+      use large black bolt
+      use large black bolt with strange box
+      use selfie stick
+      use selfie stick with strange box
+      use blueberries
+      use blueberries with strange box
+      use strange box
+      use strange box with water pump
+      go to woods
+      go to Stelzenberg town center
+      look at bike
+      look at slug
+      take slug
+      use blueberries
+      use blueberries with slug
+      use selfie stick
+      use selfie stick with slug
+      look at bike
+      go to Stelzenberg town center
+      look at town center
+      look at map
+      go to forrest
+      go to home
+      event:ShowMenuResponse;Heeeeeeeeeeeeeeeelp!
+      event:ShowMenuResponse;No chance at all?
+      look at vampire
+      speak to vampire
+      search Snoopy garage
+      look at Snoopy garage
+      look at trash cans
+      search trash cans
+      search trash cans
+      move trash cans
+      look at Armageddon's Blade
+      give Armageddon's Blade
+      event:ShowMenuResponse;vampire
+      look at Vial of Slug Blood
+      use Vial of Slug Blood
+      look at vampire
+      go to home
+    </steps>
+  </walkthrough>
 </asl>
