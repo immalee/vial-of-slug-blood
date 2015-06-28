@@ -11,6 +11,7 @@
     <category>Comedy</category>
     <difficulty>Medium</difficulty>
     <cruelty>Merciful</cruelty>
+    <cover>cover.png</cover>
   </game>
   <object name="forest">
     <inherit name="editor_room" />
