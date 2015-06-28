@@ -51,7 +51,6 @@ Still blue, still broken. A really sad bike :(
 What to use the selfie stick with?
 berry bushes
 bike
-player
 glasses
 smart phone
 apple
@@ -107,7 +106,6 @@ You can't close it.
 > use large black bolt
 What to use the large black bolt with?
 water pump
-player
 glasses
 smart phone
 selfie stick
@@ -138,7 +136,6 @@ It is a perfect, sunny summer day. The birds are singing. You have your bike nea
 What to use the large black bolt with?
 berry bushes
 bike
-player
 glasses
 smart phone
 selfie stick
@@ -166,7 +163,7 @@ There's nothing else.
 
 > look at strange box
 It's locked! There's some sort of cypher.
-XZEQRKD
+ZBGSTMF
 I'll have to keep trying!
 
 > fsd
@@ -175,7 +172,6 @@ I don't understand your command.
 > use strange box
 What to use the strange box with?
 water pump
-player
 glasses
 smart phone
 selfie stick
@@ -201,7 +197,7 @@ You can't use it that way.
 
 > look at strange box
 It's locked! There's some sort of cypher.
-LNSEFYR
+GINZATM
 Yay! It's open! It contains a small bolt, some useless stuff and a piece of paper.
 
 > look at useless stuff
@@ -227,7 +223,6 @@ Took some sweat, but I've already opened it.
 > use strange box
 What to use the strange box with?
 water pump
-player
 glasses
 smart phone
 selfie stick
@@ -274,7 +269,6 @@ Still blue, still broken. A really sad bike :(
 What to use the small bolt with?
 berry bushes
 bike
-player
 glasses
 smart phone
 selfie stick
@@ -302,7 +296,6 @@ Now I have a handful of fresh blueberries.
 What to use the blueberries with?
 berry bushes
 bike
-player
 glasses
 smart phone
 selfie stick
@@ -318,7 +311,6 @@ Adrian M. Popescu - 22 June 2015
 What to use the blueberries with?
 berry bushes
 bike
-player
 glasses
 smart phone
 selfie stick
@@ -342,7 +334,6 @@ You can go back in the woods.
 > use strange box
 What to use the strange box with?
 water pump
-player
 glasses
 smart phone
 selfie stick
@@ -360,7 +351,6 @@ You can't use it that way.
 > use large black bolt
 What to use the large black bolt with?
 water pump
-player
 glasses
 smart phone
 selfie stick
@@ -375,7 +365,6 @@ Perfect!
 > use selfie stick
 What to use the selfie stick with?
 water pump
-player
 glasses
 smart phone
 blueberries
@@ -390,7 +379,6 @@ You can't use it that way.
 > use blueberries
 What to use the blueberries with?
 water pump
-player
 glasses
 smart phone
 selfie stick
@@ -405,7 +393,6 @@ You can't use it that way.
 > use strange box
 What to use the strange box with?
 water pump
-player
 glasses
 smart phone
 selfie stick
@@ -443,7 +430,6 @@ What to use the blueberries with?
 berry bushes
 bike
 slug
-player
 glasses
 smart phone
 selfie stick
@@ -456,7 +442,6 @@ What to use the selfie stick with?
 berry bushes
 bike
 slug
-player
 glasses
 smart phone
 blueberries

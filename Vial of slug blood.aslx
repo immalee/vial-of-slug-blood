@@ -263,9 +263,22 @@
       <scenery />
       <visible type="boolean">false</visible>
       <usemenuprompt>{object:glasses},  {object:smart phone}, {object:selfie stick}, {object:apple}, {object:blueberries}, {object:bike}, {object:strange box}, {object:small bolt}, {object:useless stuff}, {object:piece of paper}</usemenuprompt>
+      <feature_container />
+      <open />
+      <close type="boolean">false</close>
+      <autounlock type="boolean">false</autounlock>
+      <autoopen type="boolean">false</autoopen>
+      <nokeymessage type="string"></nokeymessage>
+      <keycount type="int">0</keycount>
+      <locked type="boolean">false</locked>
       <use type="script">
         ShowUseMenu (this)
       </use>
+      <closescript type="script">
+      </closescript>
+      <openscript type="script">
+        msg ("I'm sure it can be opened, but it just won't budge.")
+      </openscript>
       <selfuseon type="scriptdictionary">
         <item key="bike">
           msg ("It's way bigger than the one I've lost. It's useless ...")
@@ -275,19 +288,6 @@
           msg ("Perfect!")
         </item>
       </selfuseon>
-      <feature_container />
-      <open />
-      <close type="boolean">false</close>
-      <autounlock type="boolean">false</autounlock>
-      <autoopen type="boolean">false</autoopen>
-      <nokeymessage type="string"></nokeymessage>
-      <keycount type="int">0</keycount>
-      <locked type="boolean">false</locked>
-      <closescript type="script">
-      </closescript>
-      <openscript type="script">
-        msg ("I'm sure it can be opened, but it just won't budge.")
-      </openscript>
     </object>
     <object name="water pump">
       <inherit name="editor_object" />
@@ -712,7 +712,7 @@
   <function name="ShowUseMenu" parameters="currentObject">
     msg ("What to use the " + currentObject.name + " with?")
     foreach (obj, ScopeVisible()) {
-      if (not obj = currentObject) {
+      if ((not obj = currentObject) and (not obj = player)) {
         msg (CommandLink("use " +currentObject.name+ " with " + obj.name ,obj.name))
       }
     }
@@ -807,8 +807,8 @@
       look at water pump
       search water pump
       look at large black bolt
-	  open large black bolt
-	  close large black bolt
+      open large black bolt
+      close large black bolt
       use large black bolt
       use large black bolt with water pump
       use large black bolt with player
@@ -951,8 +951,8 @@
       look at water pump
       search water pump
       look at large black bolt
-	  open large black bolt
-	  close large black bolt
+      open large black bolt
+      close large black bolt
       use large black bolt
       use large black bolt with water pump
       use large black bolt with player
