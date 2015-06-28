@@ -14,7 +14,10 @@ Gotta be careful with these. Last pair, I sat on. Second last pair disintegrated
 It's rugged and almost waterproof. 
 
 > listen to music smart phone
-You must install Adobe Flash Player for Internet Explorer for videos to work.
+You must install Adobe Flash Player for Internet Explorer for videos to work."Da, da, de ziua ta!" (Oh, yeah! Paraziții!!)
+
+> call natalie smart phone
+I got the busy signal.
 
 > use geocache app smart phone
 Oh! There's a new geo cache nearby!
@@ -69,6 +72,7 @@ apple on a stick
 
 > use selfie stick with smart phone
 
+I can use this as a profile picture on Facebook.
 
 > look at apple
 This is a generous lunch.
@@ -154,8 +158,8 @@ There's nothing else.
 
 > look at strange box
 It's locked! There's some sort of cypher.
-ZBGSTMF
-I'll have to keep trying!
+NPUGHAT
+This was not the code. I'll have to keep trying!
 
 > fsd
 I don't understand your command.
@@ -176,7 +180,7 @@ What? Why?
 
 > look at strange box
 It's locked! There's some sort of cypher.
-VXCOPIB
+OQVHIBU
 Yay! It's open! It contains a small bolt, some useless stuff and a piece of paper.
 
 > look at useless stuff

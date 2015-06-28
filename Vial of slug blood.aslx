@@ -58,8 +58,10 @@
         <inventoryverbs type="stringlist">
           <value>Look at</value>
         </inventoryverbs>
+        <callnatalie>I got the busy signal.</callnatalie>
         <listentomusic type="script">
           ShowYouTube ("ubA7evjRm6M")
+          msg ("\"Da, da, de ziua ta!\" (Oh, yeah! Paraziții!!)")
         </listentomusic>
         <usegeocacheapp type="script">
           UnlockExit (OldWaterPump)
@@ -89,6 +91,7 @@
         <selfuseon type="scriptdictionary">
           <item key="smart phone">
             picture ("selfie.jpg")
+            msg ("I can use this as a profile picture on Facebook.")
           </item>
           <item key="slug">
             RemoveObject (slug)
@@ -263,10 +266,10 @@
       <inherit name="editor_object" />
       <visible type="boolean">false</visible>
       <scenery type="boolean">false</scenery>
+      <look><![CDATA[Reminds me of an old movie.<br/>In this film, a small town is plagued by a series of grisly deaths. The local health inspector investigates and discovers that the "killers" are actually mutant garden slugs. The town had been built on top of a toxic waste dump, which turned the normally harmless slugs into ravenous carnivores.]]></look>
       <take type="script">
         msg ("Barehanded? Seriously?!")
       </take>
-      <look><![CDATA[Reminds me of an old movie.<br/>In this film, a small town is plagued by a series of grisly deaths. The local health inspector investigates and discovers that the "killers" are actually mutant garden slugs. The town had been built on top of a toxic waste dump, which turned the normally harmless slugs into ravenous carnivores.]]></look>
     </object>
   </object>
   <object name="old water pump">
@@ -376,13 +379,13 @@
           msg ("It's locked! There's some sort of cypher.")
           msg ("{random:BDIUVOH:CEJVWPI:DFKWXQJ:EGLXYRK:FHMYZSL:GINZATM:HJOABUN:IKPBCVO:JLQCDWP:KMRDEXQ:LNSEFYR:MOTFGZS:NPUGHAT:OQVHIBU:PRWIJCV:QSXJKDW:RTYKLEX:SUZLMFY:TVAMNGZ:UWBNOHA:VXCOPIB:WYDPQJC:XZEQRKD:YAFRSLE:ZBGSTMF}")
           get input {
-            if (result="ACHTUNG" or result="achtung") {
+            if (result="ACHTUNG" or result="achtung" or result="Achtung") {
               HelperOpenObject (strange box)
               msg ("Yay! It's open! It contains a {object:small bolt}, some {object:useless stuff} and a {object:piece of paper}.")
               SetObjectFlagOn (player, "hasGeoCache")
             }
             else {
-              msg ("I'll have to keep trying!")
+              msg ("This was not the code. I'll have to keep trying!")
             }
           }
         }
@@ -393,6 +396,9 @@
       <use type="script">
         ShowUseMenu (this)
       </use>
+      <selfuseanything type="script">
+        msg ("What? Why?")
+      </selfuseanything>
       <selfuseon type="scriptdictionary">
         <item key="water pump">
           if ((not Contains (strange box,small bolt)) and (not Contains (strange box, large black bolt))) {
@@ -415,9 +421,6 @@
           msg ("If only I could use the broken frame to pick the lock... Hell, why do I keep tricking myself into destroying my glasses?")
         </item>
       </selfuseon>
-      <selfuseanything type="script">
-		msg ("What? Why?")
-      </selfuseanything>
       <object name="small bolt">
         <inherit name="editor_object" />
         <inventoryverbs type="stringlist">
@@ -818,11 +821,21 @@
       go to home
     </steps>
   </walkthrough>
+  <walkthrough name="Test01">
+    <steps type="simplestringlist">
+      use geocache app smart phone
+      go to old water pump
+      search water pump
+      search water pump
+      look at strange box
+    </steps>
+  </walkthrough>
   <walkthrough name="Exploration">
     <steps type="simplestringlist">
       look at glasses
       look at smart phone
       listen to music smart phone
+      call natalie smart phone
       use geocache app smart phone
       go to Stelzenberg town center
       look at berry bushes
