@@ -932,6 +932,7 @@
     </steps>
   </walkthrough>
   <walkthrough name="ExplorationWithSpell">
+	<steps>
       look at glasses
       look at smart phone
       listen to music smart phone
