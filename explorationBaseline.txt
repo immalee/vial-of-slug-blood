@@ -98,6 +98,12 @@ Look! A large black bolt! Is this the geo cache? Or can this fix my bike??
 > look at large black bolt
 It's a large and black bolt. 
 
+> open large black bolt
+I'm sure it can be opened, but it just won't budge.
+
+> close large black bolt
+You can't close it.
+
 > use large black bolt
 What to use the large black bolt with?
 water pump
@@ -160,7 +166,7 @@ There's nothing else.
 
 > look at strange box
 It's locked! There's some sort of cypher.
-YAFRSLE
+XZEQRKD
 I'll have to keep trying!
 
 > fsd
@@ -195,7 +201,7 @@ You can't use it that way.
 
 > look at strange box
 It's locked! There's some sort of cypher.
-OQVHIBU
+LNSEFYR
 Yay! It's open! It contains a small bolt, some useless stuff and a piece of paper.
 
 > look at useless stuff
@@ -464,7 +470,7 @@ It's fixed now. But it's blue!
 > go to Stelzenberg town center
 
 You are in a Stelzenberg town center.
-You can see a town center and a map.
+You can see the town center and a map.
 You can go home or to the forest.
 Ring ring! Ring ring! 
 Oh! Natalie is calling! I am so late!
@@ -478,8 +484,8 @@ There are two guys sitting on the bench! That's so crowded!
 I know how to get home from here! No need to check the map... But, I'll do that, just in case. I know I'm kind of absent-minded sometimes.
 
 
-> go to forrest
-You can't go there.
+> go to forest
+I'm not going back already! I'm tired.
 
 > go to home
 My old school bus just passed. It always reminds me of my first year of school. I was so young!
@@ -488,11 +494,11 @@ Soon I will see the Snoopy garage. It's repainted but looks exactly as 20 years 
 That's a strange guy in front of the garage! He wears a big cloak that also covers his head. And it's so hot outside!
 The stranger approaches... It's a vampire!!!
 "Hello, Adi. I've been looking for several months for someone whose blood will not give us a stomach burn. My ten brothers are awaiting at the clinic downtown, in the sample reception area."
-Nice try, dude, but I'm not stupid. I've done my research and I made sure your blood is just fine and no one can stop me.
+Nice try, but I'm not stupid. I've done my research and I made sure your blood is just fine and no one can stop me.
 All right, I'm only willing to let you go if you can help me find a long lost artefact. Must be around here.
 
 You are at the Snoopy place.
-You can see a vampire, a Snoopy garage and a trash cans.
+You can see a vampire, a Snoopy garage and some trash cans.
 You can go home.
 
 > look at vampire
@@ -501,17 +507,44 @@ He's Lord Slug of The Vile Blood!! I shouldn't know that... Is he putting though
 > speak to vampire
 He says nothing.
 
-> search Snoopy garage
-Nothing out of the ordinary.
-
 > look at Snoopy garage
 Looks so happy! I wander what it's writing. A love letter maybe?
+
+> search Snoopy garage
+I can't find anything. 
 
 > look at trash cans
 Three trash cans for different waste types. Everything is recycled in Germany! 
 
-> search trash cans
-There's something shiny behind the middle container. Maybe I should move it so I can see better.
+> search inside trash cans
+I'm low on self-esteem right now, but not *that* low.
+
+> search inside trash cans
+Hmmmm... No, nothing interesting in here.
+
+> search inside trash cans
+Found an old Spell Book! Second Edition, 1274, by Angele de la Barthe.
+... And a Math scroll! ... Ummm ... That's a big pile of crap! There is a mistake at line 2.
+
+> look at Spell Book
+It contains only one spell.
+
+> look at Math scroll
+There is a mistake at line 2.
+
+> cast armageddon Spell Book
+It says here I need Armageddon's Blade to make the magic happen. 
+
+> give Math scroll to vampire
+Here you go, sir!
+"What is it? Let's see...", whispers the lord. "I don't think this magic will work. The second verse of the incantation is odd." 
+"I'm still waiting for the right artefact. Hurry up!!!" 
+
+> search inside trash cans
+Nothing else here. 
+
+> go to home
+I have to find the artifact first. The vampire will draw blood otherwise...
 
 > search trash cans
 There's something shiny behind the middle container. Maybe I should move it so I can see better.
@@ -519,21 +552,32 @@ There's something shiny behind the middle container. Maybe I should move it so I
 > move trash cans
 I found the artifact! It's the Armageddon's Blade!
 
-> look at Armageddon's Blade
-Nothing out of the ordinary.
+> search trash cans
+I can't find anything.
+
+> move trash cans
+I've touched the cans enough for one day.
 
 > give Armageddon's Blade
+It does not want it.
+
+> give Armageddon's Blade
+Here you go, sir!
 "Oh! You have found it!", whispers the lord. "I am deeply grateful! Not only that I will not drink your blood, but I will also give you a nice gift!" 
 "This is the Vial of Slug Blood. Equipped in a Miscellaneous slot, this powerful vial puts all slugs under your command and gives you +5 Attack and +5 Defense against them. Use it wisely" 
+The vampire disappears.
 
-> look at Vial of Slug Blood
-Nothing out of the ordinary.
+> look at badge
+Lord Slug of The Vile Blood
 
-> use Vial of Slug Blood
-You can't use it.
+CEO at Massacre Records
+Rauheck Street 10, 74232 Abstatt, Germany
 
-> look at vampire
-He's Lord Slug of The Vile Blood!! I shouldn't know that... Is he putting thoughts in my mind???
+> look at suspicious looking artefact
+I can't see that.
+
+> cast armageddon Spell Book
+It says here I need Armageddon's Blade to make the magic happen. 
 
 > go to home
 
