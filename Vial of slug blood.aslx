@@ -12,7 +12,7 @@
     <difficulty>Medium</difficulty>
     <cruelty>Merciful</cruelty>
   </game>
-  <object name="forrest">
+  <object name="forest">
     <inherit name="editor_room" />
     <objectslistprefix>You can see </objectslistprefix>
     <description>It is a perfect, sunny summer day. The birds are singing. You have your {object:bike} near you. </description>
@@ -92,7 +92,7 @@
           </item>
           <item key="slug">
             RemoveObject (slug)
-            msg ("Whiew! I've extended the stick at max length, but it was still a close one.")
+            msg ("Whew! I've extended the stick at max length, but it was still a close one.")
           </item>
         </selfuseon>
       </object>
@@ -146,7 +146,7 @@
           <value>Look at</value>
         </displayverbs>
         <feature_usegive />
-        <look>Yummi!</look>
+        <look>Yummy!</look>
         <drop type="boolean">false</drop>
         <take />
         <eat type="script">
@@ -225,10 +225,10 @@
         else if (Got(strange box)) {
           msg ("I must return the geo cache.")
         }
-        else if (Contains (forrest,slug)) {
+        else if (Contains (forest,slug)) {
           MoveObject (slug, bike)
           MakeObjectVisible (slug)
-          msg ("There's a horiible creature on my bike!. I-I-I'm n-n-not touching that! Ewgh!")
+          msg ("There's a horrible creature on my bike!. I-I-I'm n-n-not touching that! Eww! Ugh!")
         }
         else {
           MoveObject (player, Stelzenberg town center)
@@ -246,7 +246,7 @@
     <descprefix>You are </descprefix>
     <usedefaultprefix type="boolean">false</usedefaultprefix>
     <prefix>near an</prefix>
-    <exit alias="woods" to="forrest">
+    <exit alias="woods" to="forest">
       <prefix>back in the </prefix>
     </exit>
     <object name="large black bolt">
@@ -328,7 +328,7 @@
           get input {
             if (result="ACHTUNG" or result="achtung") {
               HelperOpenObject (strange box)
-              msg ("Yey! It's open! It contains a {object:small bolt}, some {object:useless stuff} and a {object:piece of paper}.")
+              msg ("Yay! It's open! It contains a {object:small bolt}, some {object:useless stuff} and a {object:piece of paper}.")
               SetObjectFlagOn (player, "hasGeoCache")
             }
             else {
@@ -417,7 +417,7 @@
         msg ("Soon I will see the Snoopy garage. It's repainted but looks exactly as 20 years ago.")
         picture ("snoopy.jpg")
         msg ("That's a strange guy in front of the garage! He wears a big cloak that also covers his head. And it's so hot outside!")
-        msg ("The stranger approaches... It's a vampire!!!<br/>\"Hello, Adi. I've been been looking for several months for someone whose blood will not give us a stomach burn. My ten brothers are awaiting at the clinic downtown, in the sample reception area.\"")
+        msg ("The stranger approaches... It's a vampire!!!<br/>\"Hello, Adi. I've been looking for several months for someone whose blood will not give us a stomach burn. My ten brothers are awaiting at the clinic downtown, in the sample reception area.\"")
         menulist = NewStringList()
         list add (menulist, "Heeeeeeeeeeeeeeeelp!")
         list add (menulist, "All right, but I'm in a bit of a hurry. Wait here and I'll be back in a few minutes.")
@@ -434,7 +434,7 @@
         }
       ]]></script>
     </exit>
-    <exit to="forrest">
+    <exit to="forest">
       <locked />
       <lockmessage>I'm not going back already! I'm tired.</lockmessage>
       <prefix> to the </prefix>
@@ -448,13 +448,13 @@
     </object>
     <object name="map">
       <inherit name="editor_object" />
+      <displayverbs type="stringlist">
+        <value>Look at</value>
+      </displayverbs>
       <look type="script">
         msg ("I know how to get home from here! No need to check the map... But, I'll do that, just in case. I know I'm kind of absent-minded sometimes.")
         picture ("map.jpg")
       </look>
-      <displayverbs type="stringlist">
-        <value>Look at</value>
-      </displayverbs>
     </object>
   </object>
   <object name="Snoopy place">
@@ -474,7 +474,7 @@
       <give type="scriptdictionary">
         <item key="Armageddon Blade">
           MoveObject (Armageddon Blade, vampire)
-          msg ("\"Oh! You have found it!\", wispers the lord. \"I am deeply grateful! Not only that I will not drink your blood, but I will also give you a nice gift!\" ")
+          msg ("\"Oh! You have found it!\", whispers the lord. \"I am deeply grateful! Not only that I will not drink your blood, but I will also give you a nice gift!\" ")
           msg ("\"This is the Vial of Slug Blood. Equipped in a Miscellaneous slot, this powerful vial puts all slugs under your command and gives you +5 Attack and +5 Defense against them. Use it wisely\" ")
           AddToInventory (Vial of Slug Blood)
           MakeObjectVisible (Vial of Slug Blood)
@@ -521,25 +521,25 @@
       <inherit name="editor_object" />
       <look>Three trash cans for different waste types. Everything is recycled in Germany! </look>
       <search>There's something shiny behind the middle container. Maybe I should move it so I can see better.</search>
+      <displayverbs type="stringlist">
+        <value>Look at</value>
+      </displayverbs>
       <move type="script">
         MakeObjectVisible (Armageddon Blade)
         msg ("I found the artifact! It's the {object:Armageddon Blade}!")
         AddToInventory (Armageddon Blade)
       </move>
-      <displayverbs type="stringlist">
-        <value>Look at</value>
-      </displayverbs>
     </object>
   </object>
   <object name="home">
     <inherit name="editor_room" />
+    <descprefix>You are </descprefix>
+    <usedefaultprefix type="boolean">false</usedefaultprefix>
     <enter type="script">
       play sound ("surprise.wav", true, false)
       msg ("Surprise!!! There's a surprise party for your birthday!")
       finish
     </enter>
-    <descprefix>You are </descprefix>
-    <usedefaultprefix type="boolean">false</usedefaultprefix>
   </object>
   <verb>
     <property>listentomusic</property>
@@ -635,4 +635,5 @@
       go to home
     </steps>
   </walkthrough>
+  <walkthrough name="Exploration" />
 </asl>
