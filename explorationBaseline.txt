@@ -1,0 +1,541 @@
+Vial of slug blood
+
+by Cristina & Călin
+
+You are in the forest.
+You can see some berry bushes and your bike.
+You can go to Stelzenberg town center.
+It is a perfect, sunny summer day. The birds are singing. You have your bike near you.
+
+> look at glasses
+Gotta be careful with these. Last pair, I sat on. Second last pair disintegrated in the sea. Third last pair...
+
+> look at smart phone
+It's rugged and almost waterproof. 
+
+> listen to music smart phone
+You must install Adobe Flash Player for Internet Explorer for videos to work.
+
+> use geocache app smart phone
+Oh! There's a new geo cache nearby!
+
+> go to Stelzenberg town center
+I can't go there! My bike is broken! I must fix it somehow!
+
+> look at berry bushes
+Blueberries! Look delicious!
+
+> pluck berry bushes
+Now I have a handful of fresh blueberries.
+
+> eat blueberries
+Delicious! 
+
+> pluck berry bushes
+Now I have a handful of fresh blueberries.
+
+> look at blueberries
+Yummy!
+
+> eat blueberries
+Delicious! 
+
+> look at bike
+My awesome mountain bike. Too bad it's blue - don't know why I keep getting blue things, when my favorite color is orange.
+And too bad it's broken. I've tried to repair it but I've lost a bolt :(
+
+> look at bike
+Still blue, still broken. A really sad bike :(
+
+> use selfie stick
+What to use the selfie stick with?
+berry bushes
+bike
+player
+glasses
+smart phone
+apple
+
+> use selfie stick with berry bushes
+You can't use it that way.
+
+> use selfie stick with bike
+You can't use it that way.
+
+> use selfie stick with player
+I can't see that. (player)
+
+> use selfie stick with glasses
+You can't use it that way.
+
+> use selfie stick with apple
+You can't use it that way.
+
+> use selfie stick with smart phone
+
+
+> look at apple
+This is a generous lunch.
+
+> eat apple
+That was delicious.
+
+> eat apple
+I can't see that. (apple)
+
+> go to old water pump
+
+You are near an old water pump.
+You can see a water pump.
+You can go back in the woods.
+
+> look at water pump
+Blue old water pump. Why is this placed in the middle of the woods??
+
+> search water pump
+Look! A large black bolt! Is this the geo cache? Or can this fix my bike??
+
+> look at large black bolt
+It's a large and black bolt. 
+
+> use large black bolt
+What to use the large black bolt with?
+water pump
+player
+glasses
+smart phone
+selfie stick
+
+> use large black bolt with water pump
+You can't use it that way.
+
+> use large black bolt with player
+I can't see that. (player)
+
+> use large black bolt with glasses
+You can't use it that way.
+
+> use large black bolt with smart phone
+You can't use it that way.
+
+> use large black bolt with selfie stick
+You can't use it that way.
+
+> go to woods
+
+You are in the forest.
+You can see some berry bushes and your bike.
+You can go to the old water pump or to Stelzenberg town center.
+It is a perfect, sunny summer day. The birds are singing. You have your bike near you.
+
+> use large black bolt
+What to use the large black bolt with?
+berry bushes
+bike
+player
+glasses
+smart phone
+selfie stick
+
+> use large black bolt with berry bushes
+You can't use it that way.
+
+> use large black bolt with bike
+It's way bigger than the one I've lost. It's useless ...
+
+> go to old water pump
+
+You are near an old water pump.
+You can see a water pump.
+You can go back in the woods.
+
+> search water pump
+That's a strange box! It's full of ants! At least there are no slugs! This must be the geo cache! Hurray! Now let's open it and see what it contains.
+
+> search water pump
+There's nothing else.
+
+> search water pump
+There's nothing else.
+
+> look at strange box
+It's locked! There's some sort of cypher.
+YAFRSLE
+I'll have to keep trying!
+
+> fsd
+I don't understand your command.
+
+> use strange box
+What to use the strange box with?
+water pump
+player
+glasses
+smart phone
+selfie stick
+large black bolt
+
+> use strange box with water pump
+I think there's a log inside. I should try to open it.
+
+> use strange box with player
+I can't see that. (player)
+
+> use strange box with glasses
+You can't use it that way.
+
+> use strange box with smart phone
+You can't use it that way.
+
+> use strange box with selfie stick
+You can't use it that way.
+
+> use strange box with large black bolt
+You can't use it that way.
+
+> look at strange box
+It's locked! There's some sort of cypher.
+OQVHIBU
+Yay! It's open! It contains a small bolt, some useless stuff and a piece of paper.
+
+> look at useless stuff
+Let's see... Three PC keys (a Steuerung, an Alternativ, and an Entfernen) , a small blue shit, and a very romantic poem
+
+Îți aduci aminte ziua când ți-am spus că ești frumoasă, 
+Când, în șoaptele pădurii, poate că te-am sărutat,
+Ascultând ecoul rece, înspre toamna friguroasă?
+
+signed G. Bacovia 
+Brrr.. .reminds me of Pașcanu.
+
+> look at piece of paper
+No one signed the log yet. I must be the first one to find it :)
+I must have lost that bloody pen, but I'm not leaving 'till I sign.
+
+> look at small bolt
+It's a small and cute bolt.
+
+> look at strange box
+Took some sweat, but I've already opened it.
+
+> use strange box
+What to use the strange box with?
+water pump
+player
+glasses
+smart phone
+selfie stick
+large black bolt
+small bolt
+useless stuff
+piece of paper
+
+> use strange box with piece of paper
+You can't use it that way.
+
+> use strange box with useless stuff
+You can't use it that way.
+
+> use strange box with small bolt
+You can't use it that way.
+
+> use strange box with large black bolt
+You can't use it that way.
+
+> use strange box with selfie stick
+You can't use it that way.
+
+> use strange box with smart phone
+You can't use it that way.
+
+> use strange box with glasses
+You can't use it that way.
+
+> use strange box with water pump
+I have to sign the log. I'm the first to find it! Have to!
+
+> go to woods
+
+You are in the forest.
+You can see some berry bushes and your bike.
+You can go to the old water pump or to Stelzenberg town center.
+It is a perfect, sunny summer day. The birds are singing. You have your bike near you.
+
+> look at bike
+Still blue, still broken. A really sad bike :(
+
+> use small bolt
+What to use the small bolt with?
+berry bushes
+bike
+player
+glasses
+smart phone
+selfie stick
+large black bolt
+strange box
+useless stuff
+piece of paper
+
+> use small bolt with bike
+Exactly what I needed! My beautiful bike is working again!
+
+> look at bike
+It's fixed now. But it's blue!
+
+> go to Stelzenberg town center
+I must return the geo cache.
+
+> use small bolt with berry bushes
+I can't see that. (small bolt)
+
+> pluck berry bushes
+Now I have a handful of fresh blueberries.
+
+> use blueberries
+What to use the blueberries with?
+berry bushes
+bike
+player
+glasses
+smart phone
+selfie stick
+large black bolt
+strange box
+useless stuff
+piece of paper
+
+> use blueberries with piece of paper
+Adrian M. Popescu - 22 June 2015 
+
+> use blueberries
+What to use the blueberries with?
+berry bushes
+bike
+player
+glasses
+smart phone
+selfie stick
+large black bolt
+strange box
+useless stuff
+piece of paper
+
+> use blueberries with useless stuff
+You can't use it that way.
+
+> use blueberries with berry bushes
+You can't use it that way.
+
+> go to old water pump
+
+You are near an old water pump.
+You can see a water pump.
+You can go back in the woods.
+
+> use strange box
+What to use the strange box with?
+water pump
+player
+glasses
+smart phone
+selfie stick
+blueberries
+large black bolt
+useless stuff
+piece of paper
+
+> use strange box with water pump
+I must give something in return for the small bolt. It was really helpful.
+
+> use strange box with large black bolt
+You can't use it that way.
+
+> use large black bolt
+What to use the large black bolt with?
+water pump
+player
+glasses
+smart phone
+selfie stick
+blueberries
+strange box
+useless stuff
+piece of paper
+
+> use large black bolt with strange box
+Perfect!
+
+> use selfie stick
+What to use the selfie stick with?
+water pump
+player
+glasses
+smart phone
+blueberries
+strange box
+large black bolt
+useless stuff
+piece of paper
+
+> use selfie stick with strange box
+You can't use it that way.
+
+> use blueberries
+What to use the blueberries with?
+water pump
+player
+glasses
+smart phone
+selfie stick
+strange box
+large black bolt
+useless stuff
+piece of paper
+
+> use blueberries with strange box
+You can't use it that way.
+
+> use strange box
+What to use the strange box with?
+water pump
+player
+glasses
+smart phone
+selfie stick
+blueberries
+large black bolt
+useless stuff
+piece of paper
+
+> use strange box with water pump
+Right where I've found it.
+
+> go to woods
+
+You are in the forest.
+You can see some berry bushes and your bike.
+You can go to the old water pump or to Stelzenberg town center.
+It is a perfect, sunny summer day. The birds are singing. You have your bike near you.
+
+> go to Stelzenberg town center
+There's a horrible creature on my bike!. I-I-I'm n-n-not touching that! Eww! Ugh!
+
+> look at bike
+It's fixed now. But it's blue!
+I'm not getting near that monster.
+On the bike there's a slug.
+
+> look at slug
+Nothing out of the ordinary.
+
+> take slug
+You can't take it.
+
+> use blueberries
+What to use the blueberries with?
+berry bushes
+bike
+slug
+player
+glasses
+smart phone
+selfie stick
+
+> use blueberries with slug
+You can't use it that way.
+
+> use selfie stick
+What to use the selfie stick with?
+berry bushes
+bike
+slug
+player
+glasses
+smart phone
+blueberries
+
+> use selfie stick with slug
+Whew! I've extended the stick at max length, but it was still a close one.
+
+> look at bike
+It's fixed now. But it's blue!
+
+> go to Stelzenberg town center
+
+You are in a Stelzenberg town center.
+You can see a town center and a map.
+You can go home or to the forest.
+Ring ring! Ring ring! 
+Oh! Natalie is calling! I am so late!
+"Hi Natalie! I will be home in 7 minutes."
+
+> look at town center
+There are two guys sitting on the bench! That's so crowded!
+
+
+> look at map
+I know how to get home from here! No need to check the map... But, I'll do that, just in case. I know I'm kind of absent-minded sometimes.
+
+
+> go to forrest
+You can't go there.
+
+> go to home
+My old school bus just passed. It always reminds me of my first year of school. I was so young!
+Soon I will see the Snoopy garage. It's repainted but looks exactly as 20 years ago.
+
+That's a strange guy in front of the garage! He wears a big cloak that also covers his head. And it's so hot outside!
+The stranger approaches... It's a vampire!!!
+"Hello, Adi. I've been looking for several months for someone whose blood will not give us a stomach burn. My ten brothers are awaiting at the clinic downtown, in the sample reception area."
+Nice try, dude, but I'm not stupid. I've done my research and I made sure your blood is just fine and no one can stop me.
+All right, I'm only willing to let you go if you can help me find a long lost artefact. Must be around here.
+
+You are at the Snoopy place.
+You can see a vampire, a Snoopy garage and a trash cans.
+You can go home.
+
+> look at vampire
+He's Lord Slug of The Vile Blood!! I shouldn't know that... Is he putting thoughts in my mind???
+
+> speak to vampire
+He says nothing.
+
+> search Snoopy garage
+Nothing out of the ordinary.
+
+> look at Snoopy garage
+Looks so happy! I wander what it's writing. A love letter maybe?
+
+> look at trash cans
+Three trash cans for different waste types. Everything is recycled in Germany! 
+
+> search trash cans
+There's something shiny behind the middle container. Maybe I should move it so I can see better.
+
+> search trash cans
+There's something shiny behind the middle container. Maybe I should move it so I can see better.
+
+> move trash cans
+I found the artifact! It's the Armageddon's Blade!
+
+> look at Armageddon's Blade
+Nothing out of the ordinary.
+
+> give Armageddon's Blade
+"Oh! You have found it!", whispers the lord. "I am deeply grateful! Not only that I will not drink your blood, but I will also give you a nice gift!" 
+"This is the Vial of Slug Blood. Equipped in a Miscellaneous slot, this powerful vial puts all slugs under your command and gives you +5 Attack and +5 Defense against them. Use it wisely" 
+
+> look at Vial of Slug Blood
+Nothing out of the ordinary.
+
+> use Vial of Slug Blood
+You can't use it.
+
+> look at vampire
+He's Lord Slug of The Vile Blood!! I shouldn't know that... Is he putting thoughts in my mind???
+
+> go to home
+
+You are home.
+Surprise!!! There's a surprise party for your birthday!

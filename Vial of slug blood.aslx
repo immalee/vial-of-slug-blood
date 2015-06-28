@@ -420,14 +420,14 @@
         msg ("The stranger approaches... It's a vampire!!!<br/>\"Hello, Adi. I've been looking for several months for someone whose blood will not give us a stomach burn. My ten brothers are awaiting at the clinic downtown, in the sample reception area.\"")
         menulist = NewStringList()
         list add (menulist, "Heeeeeeeeeeeeeeeelp!")
-        list add (menulist, "All right, but I'm in a bit of a hurry. Wait here and I'll be back in a few minutes.")
-        list add (menulist, "I've just got checked and the doctors suspect I might have tuberculosis.")
+        list add (menulist, "I have just got checked and the doctors suspect I might have tuberculosis.")
+        list add (menulist, "All right, but I am in a bit of a hurry. Wait here and I will be back in a few minutes.")
         ShowMenu ("Yikes!", menulist, false) {
-          msg ("Nice try, dude, but I'm not stupid. I've done my research and I made sure your blood is just fine and no one can stop me.")
-          menulist = NewStringList()
-          list add (menulist, "Pretty please?")
-          list add (menulist, "No chance at all?")
-          ShowMenu ("", menulist, false) {
+          msg ("Nice try, but I'm not stupid. I've done my research and I made sure your blood is just fine and no one can stop me.")
+          menulist2 = NewStringList()
+          list add (menulist2, "Pretty please?")
+          list add (menulist2, "No chance at all?")
+          ShowMenu ("", menulist2, false) {
             msg ("All right, I'm only willing to let you go if you can help me find a long lost artefact. Must be around here.")
             MoveObject (player, Snoopy place)
           }
@@ -445,6 +445,8 @@
       <displayverbs type="stringlist">
         <value>Look at</value>
       </displayverbs>
+      <usedefaultprefix type="boolean">false</usedefaultprefix>
+      <prefix>the </prefix>
     </object>
     <object name="map">
       <inherit name="editor_object" />
@@ -463,8 +465,20 @@
     <descprefix>You are at</descprefix>
     <prefix>the</prefix>
     <exit name="GoHome" to="home">
-      <locked />
-      <lockmessage>I have to find the artifact first. The vampire will take my blood otherwise...</lockmessage>
+      <locked type="boolean">false</locked>
+      <lockmessage type="string"></lockmessage>
+      <runscript />
+      <script type="script">
+        if (ListContains(ScopeVisible(), vampire)) {
+          msg ("I have to find the artifact first. The vampire will draw blood otherwise...")
+        }
+        else if (not Got(Vial of Slug Blood)) {
+          msg ("Such a weird day. I have a strong feeling I'm missing something important. I must find out what this was all about.")
+        }
+        else {
+          MoveObject (player, home)
+        }
+      </script>
     </exit>
     <object name="vampire">
       <inherit name="editor_object" />
@@ -473,14 +487,53 @@
       <feature_usegive />
       <give type="scriptdictionary">
         <item key="Armageddon Blade">
+          msg ("Here you go, sir!")
           MoveObject (Armageddon Blade, vampire)
           msg ("\"Oh! You have found it!\", whispers the lord. \"I am deeply grateful! Not only that I will not drink your blood, but I will also give you a nice gift!\" ")
           msg ("\"This is the Vial of Slug Blood. Equipped in a Miscellaneous slot, this powerful vial puts all slugs under your command and gives you +5 Attack and +5 Defense against them. Use it wisely\" ")
+          Vial of Slug Blood.alias = null
           AddToInventory (Vial of Slug Blood)
-          MakeObjectVisible (Vial of Slug Blood)
+          AddToInventory (badge)
           UnlockExit (GoHome)
+          msg ("The vampire disappears.")
+          RemoveObject (vampire)
+        </item>
+        <item key="Math scroll">
+          msg ("Here you go, sir!")
+          msg ("\"What is it? Let's see...\", whispers the lord. \"I don't think this magic will work. The second verse of the incantation is odd.\"  ")
+          msg ("\"I'm still waiting for the right artefact. Hurry up!!!\" ")
         </item>
       </give>
+      <object name="Vial of Slug Blood">
+        <inherit name="editor_object" />
+        <visible />
+        <scenery type="boolean">false</scenery>
+        <inventoryverbs type="stringlist">
+          <value>Look at</value>
+        </inventoryverbs>
+        <alias>suspicious looking artefact</alias>
+        <take />
+        <drop type="boolean">false</drop>
+        <takemsg>Feeling better already!</takemsg>
+        <look type="script">
+          Vial of Slug Blood.alias = null
+          if (Got(Vial of Slug Blood)) {
+            msg ("I feel much safer since I'm wearing this. No more slugs!")
+          }
+          else {
+            msg ("{object:Vial of Slug Blood}. Equipped in a Miscellaneous slot, this powerful vial puts all slugs under your command and gives you +5 Attack and +5 Defense against them.")
+          }
+        </look>
+      </object>
+      <object name="badge">
+        <inherit name="editor_object" />
+        <visible />
+        <scenery type="boolean">false</scenery>
+        <look><![CDATA[Lord Slug of The Vile Blood<br/><br/>CEO at Massacre Records<br/>Rauheck Street 10, 74232 Abstatt, Germany]]></look>
+        <displayverbs type="stringlist">
+          <value>Look at</value>
+        </displayverbs>
+      </object>
     </object>
     <object name="Armageddon Blade">
       <inherit name="editor_object" />
@@ -494,25 +547,12 @@
         <value>give</value>
       </inventoryverbs>
       <givemenuprompt>To the vampire, you mean?</givemenuprompt>
-      <give type="scriptdictionary">
-        <item key="vampire">
-          msg ("There you go, sir")
-        </item>
-      </give>
-    </object>
-    <object name="Vial of Slug Blood">
-      <inherit name="editor_object" />
-      <visible type="boolean">false</visible>
-      <scenery />
-      <inventoryverbs type="stringlist">
-        <value>Look at</value>
-        <value>Use</value>
-      </inventoryverbs>
+      <look><![CDATA[The mighty, the powerful, the one and only: ARMAGEDDON's BLADE!<br/><br/>Equipped in the weapon slot, this powerful sword gives your hero<br/>+ 3 Attack<br/>+ 3 Defense<br/>+ 6 Knowledge<br/>+ 3 Spell Power<br/>Enables the Armageddon spell in your hero's spell book at expert level.<br/>All your hero's creatures become immune to Armageddon.]]></look>
     </object>
     <object name="Snoopy garage">
       <inherit name="editor_object" />
       <look>Looks so happy! I wander what it's writing. A love letter maybe?</look>
-      <search>Nothing out of the ordinary.</search>
+      <search>I can't find anything. </search>
       <displayverbs type="stringlist">
         <value>Look at</value>
       </displayverbs>
@@ -520,15 +560,92 @@
     <object name="trash cans">
       <inherit name="editor_object" />
       <look>Three trash cans for different waste types. Everything is recycled in Germany! </look>
-      <search>There's something shiny behind the middle container. Maybe I should move it so I can see better.</search>
       <displayverbs type="stringlist">
         <value>Look at</value>
       </displayverbs>
+      <usedefaultprefix type="boolean">false</usedefaultprefix>
+      <prefix>some </prefix>
+      <search type="script">
+        if (not Got(Armageddon Blade)) {
+          msg ("There's something shiny behind the middle container. Maybe I should move it so I can see better.")
+        }
+        else {
+          msg ("I can't find anything.")
+        }
+      </search>
       <move type="script">
-        MakeObjectVisible (Armageddon Blade)
-        msg ("I found the artifact! It's the {object:Armageddon Blade}!")
-        AddToInventory (Armageddon Blade)
+        if (not Got(Armageddon Blade)) {
+          MakeObjectVisible (Armageddon Blade)
+          msg ("I found the artifact! It's the {object:Armageddon Blade}!")
+          AddToInventory (Armageddon Blade)
+        }
+        else {
+          msg ("I've touched the cans enough for one day.")
+        }
       </move>
+      <searchinside type="script">
+        menulist = NewStringList()
+        list add (menulist, "Organic")
+        list add (menulist, "Plastic")
+        list add (menulist, "Paper")
+        ShowMenu ("", menulist, false) {
+          if (result="Paper") {
+            firsttime {
+              AddToInventory (Spell Book)
+              AddToInventory (Math scroll)
+              msg ("Found an old {object:Spell Book}! Second Edition, 1274, by Angele de la Barthe.")
+              msg ("... And a {object:Math scroll}! ... Ummm ... That's a big pile of crap! There is a mistake at line 2.")
+            }
+            otherwise {
+              msg ("Nothing else here. ")
+            }
+          }
+          if (result="Organic") {
+            msg ("I'm low on self-esteem right now, but not *that* low.")
+          }
+          if (result="Plastic") {
+            msg ("Hmmmm... No, nothing interesting in here.")
+          }
+        }
+      </searchinside>
+      <object name="Spell Book">
+        <inherit name="editor_object" />
+        <look>It contains only one spell.</look>
+        <inventoryverbs type="stringlist">
+          <value>Look at</value>
+        </inventoryverbs>
+        <castarmageddon type="script">
+          if (Got(Armageddon Blade)) {
+            firsttime {
+              MoveObjectHere (Vial of Slug Blood)
+              MoveObjectHere (badge)
+              RemoveObject (vampire)
+              msg ("The vampire vanishes in a pyrotechnic display. Only a {object:badge} and a {object:Vial of Slug Blood} remain behind. ")
+            }
+            otherwise {
+              msg ("Not enough mana.")
+            }
+          }
+          else {
+            msg ("It says here I need Armageddon's Blade to make the magic happen. ")
+          }
+          firsttime {
+          }
+        </castarmageddon>
+      </object>
+      <object name="Math scroll">
+        <inherit name="editor_object" />
+        <feature_usegive />
+        <look>There is a mistake at line 2.</look>
+        <givesingle />
+        <givemenuprompt>To the vampire, you mean?</givemenuprompt>
+        <drop type="boolean">false</drop>
+        <inventoryverbs type="stringlist">
+          <value>Look at</value>
+          <value>Give</value>
+        </inventoryverbs>
+        <visible />
+      </object>
     </object>
   </object>
   <object name="home">
@@ -565,6 +682,16 @@
     <property>givetovampire</property>
     <pattern>give to vampire</pattern>
     <defaultexpression>"You can't give to vampire " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>castarmageddon</property>
+    <pattern>cast armageddon</pattern>
+    <defaultexpression>"You can't cast armageddon " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>searchinside</property>
+    <pattern>search inside</pattern>
+    <defaultexpression>"You can't search inside " + object.article + "."</defaultexpression>
   </verb>
   <function name="ShowUseMenu" parameters="currentObject">
     msg ("What to use the " + currentObject.name + " with?")
@@ -741,24 +868,185 @@
       go to Stelzenberg town center
       look at town center
       look at map
-      go to forrest
+      go to forest
       go to home
       event:ShowMenuResponse;Heeeeeeeeeeeeeeeelp!
       event:ShowMenuResponse;No chance at all?
       look at vampire
       speak to vampire
-      search Snoopy garage
       look at Snoopy garage
+      search Snoopy garage
       look at trash cans
-      search trash cans
+      search inside trash cans
+      event:ShowMenuResponse;Organic
+      search inside trash cans
+      event:ShowMenuResponse;Plastic
+      search inside trash cans
+      event:ShowMenuResponse;Paper
+      look at Spell Book
+      look at Math scroll
+      cast armageddon Spell Book
+      give Math scroll to vampire
+      search inside trash cans
+      event:ShowMenuResponse;Paper
+      go to home
       search trash cans
       move trash cans
-      look at Armageddon's Blade
+      search trash cans
+      move trash cans
+      give Armageddon's Blade
+      event:ShowMenuResponse;Math scroll
       give Armageddon's Blade
       event:ShowMenuResponse;vampire
-      look at Vial of Slug Blood
-      use Vial of Slug Blood
+      look at badge
+      look at suspicious looking artefact
+	  cast armageddon Spell Book
+      go to home
+    </steps>
+  </walkthrough>
+  <walkthrough name="ExplorationWithSpell">
+    <steps type="simplestringlist">
+      look at glasses
+      look at smart phone
+      listen to music smart phone
+      use geocache app smart phone
+      go to Stelzenberg town center
+      look at berry bushes
+      pluck berry bushes
+      eat blueberries
+      pluck berry bushes
+      look at blueberries
+      eat blueberries
+      look at bike
+      look at bike
+      use selfie stick
+      use selfie stick with berry bushes
+      use selfie stick with bike
+      use selfie stick with player
+      use selfie stick with glasses
+      use selfie stick with apple
+      use selfie stick with smart phone
+      look at apple
+      eat apple
+      eat apple
+      go to old water pump
+      look at water pump
+      search water pump
+      look at large black bolt
+      use large black bolt
+      use large black bolt with water pump
+      use large black bolt with player
+      use large black bolt with glasses
+      use large black bolt with smart phone
+      use large black bolt with selfie stick
+      go to woods
+      use large black bolt
+      use large black bolt with berry bushes
+      use large black bolt with bike
+      go to old water pump
+      search water pump
+      search water pump
+      search water pump
+      look at strange box
+      use strange box
+      fsd
+      use strange box
+      use strange box with water pump
+      use strange box with player
+      use strange box with glasses
+      use strange box with smart phone
+      use strange box with selfie stick
+      use strange box with large black bolt
+      look at strange box
+      achtung
+      look at useless stuff
+      look at piece of paper
+      look at small bolt
+      look at strange box
+      use strange box
+      use strange box with piece of paper
+      use strange box with useless stuff
+      use strange box with small bolt
+      use strange box with large black bolt
+      use strange box with selfie stick
+      use strange box with smart phone
+      use strange box with glasses
+      use strange box with water pump
+      go to woods
+      look at bike
+      use small bolt
+      use small bolt with bike
+      look at bike
+      go to Stelzenberg town center
+      use small bolt with berry bushes
+      pluck berry bushes
+      use blueberries
+      use blueberries with piece of paper
+      use blueberries
+      use blueberries with useless stuff
+      use blueberries with berry bushes
+      go to old water pump
+      use strange box
+      use strange box with water pump
+      use strange box with large black bolt
+      use large black bolt
+      use large black bolt with strange box
+      use selfie stick
+      use selfie stick with strange box
+      use blueberries
+      use blueberries with strange box
+      use strange box
+      use strange box with water pump
+      go to woods
+      go to Stelzenberg town center
+      look at bike
+      look at slug
+      take slug
+      use blueberries
+      use blueberries with slug
+      use selfie stick
+      use selfie stick with slug
+      look at bike
+      go to Stelzenberg town center
+      look at town center
+      look at map
+      go to forest
+      go to home
+      event:ShowMenuResponse;Heeeeeeeeeeeeeeeelp!
+      event:ShowMenuResponse;No chance at all?
       look at vampire
+      speak to vampire
+      look at Snoopy garage
+      search Snoopy garage
+      look at trash cans
+      search inside trash cans
+      event:ShowMenuResponse;Organic
+      search inside trash cans
+      event:ShowMenuResponse;Plastic
+      search inside trash cans
+      event:ShowMenuResponse;Paper
+      look at Spell Book
+      look at Math scroll
+      cast armageddon Spell Book
+      give Math scroll to vampire
+      search inside trash cans
+      event:ShowMenuResponse;Paper
+      go to home
+      search trash cans
+      move trash cans
+      search trash cans
+      move trash cans
+      look at Spell Book
+      cast armageddon Spell Book
+      go to home
+      look at badge
+      look at suspicious looking artefact
+      look at Vial of Slug Blood
+      go to home
+      take Vial of Slug Blood
+      give Armageddon's Blade
+      event:ShowMenuResponse;Spell Book
+      cast armageddon Spell Book
       go to home
     </steps>
   </walkthrough>
