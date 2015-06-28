@@ -251,9 +251,12 @@
     </exit>
     <object name="large black bolt">
       <inherit name="editor_object" />
+      <inherit name="container_lockable" />
+      <inherit name="openable" />
       <inventoryverbs type="stringlist">
         <value>Look at</value>
         <value>Use</value>
+        <value>Open</value>
       </inventoryverbs>
       <feature_usegive />
       <look>It's a large and black bolt. </look>
@@ -272,6 +275,19 @@
           msg ("Perfect!")
         </item>
       </selfuseon>
+      <feature_container />
+      <open />
+      <close type="boolean">false</close>
+      <autounlock type="boolean">false</autounlock>
+      <autoopen type="boolean">false</autoopen>
+      <nokeymessage type="string"></nokeymessage>
+      <keycount type="int">0</keycount>
+      <locked type="boolean">false</locked>
+      <closescript type="script">
+      </closescript>
+      <openscript type="script">
+        msg ("I'm sure it can be opened, but it just won't budge.")
+      </openscript>
     </object>
     <object name="water pump">
       <inherit name="editor_object" />
@@ -544,7 +560,7 @@
       <givesingle />
       <inventoryverbs type="stringlist">
         <value>Look at</value>
-        <value>give</value>
+        <value>Give</value>
       </inventoryverbs>
       <givemenuprompt>To the vampire, you mean?</givemenuprompt>
       <look><![CDATA[The mighty, the powerful, the one and only: ARMAGEDDON's BLADE!<br/><br/>Equipped in the weapon slot, this powerful sword gives your hero<br/>+ 3 Attack<br/>+ 3 Defense<br/>+ 6 Knowledge<br/>+ 3 Spell Power<br/>Enables the Armageddon spell in your hero's spell book at expert level.<br/>All your hero's creatures become immune to Armageddon.]]></look>
@@ -791,6 +807,8 @@
       look at water pump
       search water pump
       look at large black bolt
+	  open large black bolt
+	  close large black bolt
       use large black bolt
       use large black bolt with water pump
       use large black bolt with player
@@ -900,7 +918,7 @@
       event:ShowMenuResponse;vampire
       look at badge
       look at suspicious looking artefact
-	  cast armageddon Spell Book
+      cast armageddon Spell Book
       go to home
     </steps>
   </walkthrough>
@@ -933,6 +951,8 @@
       look at water pump
       search water pump
       look at large black bolt
+	  open large black bolt
+	  close large black bolt
       use large black bolt
       use large black bolt with water pump
       use large black bolt with player
