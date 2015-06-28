@@ -761,33 +761,6 @@
       }
     }
   </function>
-  <walkthrough name="WoodsHappyPath">
-    <steps type="simplestringlist">
-      use geocache app smart phone
-      go to old water pump
-      search water pump
-      search water pump
-      look at strange box
-      achtung
-      go to woods
-      use small bolt
-      use small bolt with bike
-      pluck berry bushes
-      use blueberries
-      use blueberries with piece of paper
-      use large black bolt
-      use large black bolt with strange box
-      go to old water pump
-      use strange box
-      use strange box with water pump
-      go to woods
-      go to Stelzenberg town center
-      look at bike
-      use selfie stick
-      use selfie stick with slug
-      go to Stelzenberg town center
-    </steps>
-  </walkthrough>
   <walkthrough name="HappyPath">
     <steps type="simplestringlist">
       use geocache app smart phone
@@ -820,15 +793,6 @@
       give Armageddon's Blade
       event:ShowMenuResponse;vampire
       go to home
-    </steps>
-  </walkthrough>
-  <walkthrough name="Test01">
-    <steps type="simplestringlist">
-      use geocache app smart phone
-      go to old water pump
-      search water pump
-      search water pump
-      look at strange box
     </steps>
   </walkthrough>
   <walkthrough name="Exploration">
@@ -968,10 +932,10 @@
     </steps>
   </walkthrough>
   <walkthrough name="ExplorationWithSpell">
-    <steps type="simplestringlist">
       look at glasses
       look at smart phone
       listen to music smart phone
+      call natalie smart phone
       use geocache app smart phone
       go to Stelzenberg town center
       look at berry bushes
@@ -985,7 +949,6 @@
       use selfie stick
       use selfie stick with berry bushes
       use selfie stick with bike
-      use selfie stick with player
       use selfie stick with glasses
       use selfie stick with apple
       use selfie stick with smart phone
@@ -1000,10 +963,8 @@
       close large black bolt
       use large black bolt
       use large black bolt with water pump
-      use large black bolt with player
       use large black bolt with glasses
       use large black bolt with smart phone
-      use large black bolt with selfie stick
       go to woods
       use large black bolt
       use large black bolt with berry bushes
@@ -1016,12 +977,8 @@
       use strange box
       fsd
       use strange box
-      use strange box with water pump
-      use strange box with player
       use strange box with glasses
       use strange box with smart phone
-      use strange box with selfie stick
-      use strange box with large black bolt
       look at strange box
       achtung
       look at useless stuff
@@ -1029,9 +986,6 @@
       look at small bolt
       look at strange box
       use strange box
-      use strange box with piece of paper
-      use strange box with useless stuff
-      use strange box with small bolt
       use strange box with large black bolt
       use strange box with selfie stick
       use strange box with smart phone
